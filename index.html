@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zhang Chengyang · Justin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="crt-noise" aria-hidden="true"></div>
+
+<nav class="nav">
+  <a href="#top" class="nav-mark" aria-label="home">▣</a>
+  <div class="nav-links">
+    <a href="#about">about</a>
+    <a href="#lab">lab</a>
+    <a href="#projects">projects</a>
+    <a href="#parse">parse&nbsp;this</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="hero-scene" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="desk">
+      <div class="lamp"></div>
+      <div class="monitor"><div class="monitor-glow"></div></div>
+      <div class="books"><span></span><span></span><span></span></div>
+      <div class="sprite" id="sprite">☺</div>
+    </div>
+  </div>
+
+  <div class="hero-text">
+    <p class="eyebrow">welcome, press start</p>
+    <h1 class="glitch-name">
+      <span class="cn">张丞阳</span>
+      <span class="en">Zhang&nbsp;Chengyang</span>
+    </h1>
+    <p class="ipa">/ˈdʒʌs.tɪn/ &nbsp;·&nbsp; goes by <span class="accent">Justin</span></p>
+    <p class="terminal" id="terminal"></p>
+    <p class="hero-sub">Cognitive Science (Computing) + Linguistics &amp; Computer Science @ UCLA<br>
+    Research Assistant, UCLA Language Processing Lab</p>
+    <a href="#about" class="scroll-cue">▾ scroll</a>
+  </div>
+</header>
+
+<main>
+
+<section id="about" class="section">
+  <p class="section-label">01 · about</p>
+  <div class="gloss-block">
+    <div class="gloss-line">
+      <span class="gloss-obj">I&nbsp;&nbsp;&nbsp;&nbsp;study&nbsp;&nbsp;&nbsp;how&nbsp;&nbsp;minds&nbsp;&nbsp;parse&nbsp;&nbsp;language,</span>
+      <span class="gloss-gls">1SG&nbsp;study-PRS&nbsp;how&nbsp;mind-PL&nbsp;parse-3PL&nbsp;language-ACC,</span>
+    </div>
+    <div class="gloss-line">
+      <span class="gloss-obj">and&nbsp;&nbsp;build&nbsp;&nbsp;systems&nbsp;&nbsp;that&nbsp;&nbsp;try&nbsp;&nbsp;to&nbsp;&nbsp;do&nbsp;&nbsp;the&nbsp;&nbsp;same.</span>
+      <span class="gloss-gls">and&nbsp;build-PRS&nbsp;system-PL&nbsp;REL&nbsp;try-3PL&nbsp;INF&nbsp;do-INF&nbsp;same-ACC.</span>
+    </div>
+    <p class="gloss-free">&lsquo;I study how minds process language, and build systems that attempt the same.&rsquo;</p>
+  </div>
+  <p class="about-body">
+    I'm a first-year at UCLA double-majoring in Cognitive Science and Linguistics &amp; Computer Science.
+    Most of my time splits between formal linguistic theory, historical phonology, and building the kind of
+    ML systems that make theory testable at scale. Long-term I'm aiming at AI/ML research and engineering —
+    ideally work that still remembers where language comes from.
+  </p>
+</section>
+
+<section id="lab" class="section">
+  <p class="section-label">02 · lab work</p>
+  <div class="cartridge wide">
+    <div class="cartridge-top">
+      <span class="cart-tag">UCLA Language Processing Lab</span>
+      <span class="cart-pi">PI: Jesse Harris</span>
+    </div>
+    <h3>Animacy &amp; Compositional Semantics</h3>
+    <p>Cross-linguistic study of the animacy hierarchy and compositional semantics across five languages.
+    I handle corpus construction, the data pipeline, and contextual embedding models.</p>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <p class="section-label">03 · projects</p>
+  <p class="section-note">a shelf of things I'm building — click a cartridge</p>
+
+  <div class="shelf">
+
+    <article class="cartridge" tabindex="0">
+      <span class="cart-glyph">◆</span>
+      <h3>Kt/V Adequacy Model</h3>
+      <p class="cart-sub">clinical ML · in progress</p>
+      <p>A hybrid model predicting and optimizing hemodialysis adequacy (Kt/V) from patient demographics
+      and clinical indicators, with a second sub-model for convective/middle-molecule clearance. Built on
+      a decade-plus longitudinal dataset from a hospital data partnership. My first real ML portfolio piece —
+      gradient-boosted trees plus a deep learning component.</p>
+    </article>
+
+    <article class="cartridge" tabindex="0">
+      <span class="cart-glyph">▲</span>
+      <h3>EWCB</h3>
+      <p class="cart-sub">computational linguistics · research</p>
+      <p>Entrenchment-Weighted Compression Bottleneck — a module aimed at explaining grammaticalization
+      unidirectionality through neural iterated learning. Original research sitting at the intersection of
+      classical linguistic theory and AI, aimed at ACL/EMNLP.</p>
+    </article>
+
+    <article class="cartridge" tabindex="0">
+      <span class="cart-glyph">●</span>
+      <h3>顏師古音注 Data</h3>
+      <p class="cart-sub">digital humanities · phonology</p>
+      <p>Cleaning and structuring phonological annotations — fanqie, 讀如, 讀曰, direct homophone glosses —
+      from Yan Shigu's commentary on the Han Shu, plus the Hongwu Zhengyun. The cleaned data now feeds a
+      Middle Chinese consonant reconstruction model built on mixed integer optimization.</p>
+    </article>
+
+    <article class="cartridge" tabindex="0">
+      <span class="cart-glyph">■</span>
+      <h3>Cantonese &amp; Southern Min</h3>
+      <p class="cart-sub">historical linguistics · collaboration</p>
+      <p>Working with Prof. Weiwei Sun (Cambridge) on Cantonese syntax and Southern Min phonology, drawing
+      on classical Chinese phonology sources — Baxter &amp; Sagart, 王力, 潘悟云, 鄭張尚芳.</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="parse" class="section">
+  <p class="section-label">04 · parse this</p>
+  <p class="section-note">type a sentence — I'll take a playful, not-linguistically-rigorous stab at tagging it. no promises.</p>
+
+  <div class="parser">
+    <div class="parser-input-row">
+      <input id="parseInput" type="text" maxlength="60" placeholder="the cat sat on the mat" autocomplete="off">
+      <button id="parseBtn">parse ▸</button>
+    </div>
+    <div id="parseOutput" class="parse-output" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <p class="section-label">05 · contact</p>
+  <div class="mailbox">
+    <div class="mailbox-icon">✉</div>
+    <p>reach out —</p>
+    <div class="contact-links">
+      <a href="mailto:you@example.com">email</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">github</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">linkedin</a>
+    </div>
+  </div>
+  <p class="footer-note">built by hand, hosted on GitHub Pages · press start 2p never dies</p>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
