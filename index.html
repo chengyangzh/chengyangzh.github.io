@@ -1,312 +1,219 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="mixtape">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Justin Zhang — UCLA undergraduate researching language, cognition, and AI.">
-  <meta name="theme-color" content="#2447ff">
-  <title>Justin Zhang · Research Mixtape</title>
+  <meta name="description" content="Justin Zhang — UCLA undergraduate working across language, cognition, and AI.">
+  <meta name="theme-color" content="#f3f1ea">
+  <title>Justin Zhang · 张丞阳</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="gate-open">
-  <div class="grain" aria-hidden="true"></div>
+<body class="intro-open">
 
-  <section class="tape-gate" id="tapeGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
-    <div class="gate-marquee" aria-hidden="true">
-      <span>PERSONAL RESEARCH MIXTAPE · UCLA · LANGUAGE · COGNITION · AI · SIDE A · </span>
-      <span>PERSONAL RESEARCH MIXTAPE · UCLA · LANGUAGE · COGNITION · AI · SIDE A · </span>
+  <section class="intro" id="intro" aria-labelledby="introTitle">
+    <div class="intro-topline">
+      <span>JZ / ARCHIVE 01</span>
+      <button class="plain-button" id="skipIntro">skip</button>
     </div>
 
-    <div class="gate-stage">
-      <div class="gate-copy">
-        <p class="tiny-label">CHENGYANG / JUSTIN — ARCHIVE 01</p>
-        <h1 id="gateTitle">INSERT TAPE<br>TO CONTINUE</h1>
-        <p class="gate-note">Drag the cassette into the Walkman, or click it. Headphones optional.</p>
-      </div>
+    <div class="intro-stage">
+      <p class="intro-kicker">personal field recording</p>
+      <h1 id="introTitle">A small tape before the index.</h1>
 
-      <div class="deck-wrap">
-        <div class="walkman" id="walkman" aria-label="Pixel Walkman cassette player">
-          <div class="walkman-top">
-            <span>JZ // FIELD PLAYER</span>
-            <span>STEREO</span>
+      <div class="player-scene" id="playerScene">
+        <div class="walkman" id="walkman" aria-label="Walkman cassette player">
+          <div class="walkman-meta">
+            <span>FIELD PLAYER</span>
+            <span>01</span>
           </div>
-          <div class="screen">
-            <span id="gateStatus">NO TAPE</span>
-            <span id="gateCounter">00:00</span>
+          <div class="walkman-window">
+            <div class="slot" id="slot">
+              <span class="slot-line"></span>
+              <span class="slot-status" id="slotStatus">EMPTY</span>
+            </div>
           </div>
-          <div class="drop-slot" id="dropSlot">
-            <div class="slot-mouth"></div>
-            <span>DROP MIXTAPE HERE</span>
+          <div class="controls" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
           </div>
-          <div class="walkman-buttons" aria-hidden="true">
-            <span>■</span><span>◀◀</span><span>▶</span><span>▶▶</span>
-          </div>
-          <div class="brand-line">AUTO REVERSE · DOLBY-ish · 2026</div>
         </div>
 
-        <button class="cassette" id="cassette" draggable="true" aria-label="Insert research mixtape">
-          <span class="cassette-label-top">JUSTIN ZHANG</span>
-          <span class="cassette-title">RESEARCH<br>MIXTAPE</span>
+        <button class="cassette" id="cassette" draggable="true" aria-label="Insert cassette and enter site">
           <span class="cassette-side">A</span>
+          <span class="cassette-name">JUSTIN ZHANG</span>
+          <span class="cassette-rule"></span>
           <span class="cassette-window">
-            <span class="reel left"></span>
-            <span class="tape-line"></span>
-            <span class="reel right"></span>
+            <i></i><b></b><i></i>
           </span>
-          <span class="cassette-footer">LING / COGSCI / AI · 46 MIN</span>
+          <span class="cassette-note">LANGUAGE / COGNITION / AI</span>
         </button>
       </div>
 
-      <div class="gate-controls">
-        <button class="pixel-button ghost" id="skipIntro">skip intro ↗</button>
-        <button class="pixel-button ghost" id="soundToggle" aria-pressed="true">sound: on</button>
-      </div>
+      <p class="intro-instruction" id="introInstruction">click the cassette, or drag it into the player</p>
     </div>
 
-    <div class="boot-strip" aria-hidden="true"><span id="bootFill"></span></div>
+    <div class="intro-bottomline">
+      <span>LOS ANGELES, CA</span>
+      <span>2026</span>
+    </div>
   </section>
 
-  <div class="site-shell" id="siteShell" aria-hidden="true">
-    <header class="player-bar">
-      <a class="wordmark" href="#home" aria-label="Justin Zhang home">JZ<span>★</span></a>
-      <div class="mini-player" aria-label="Section player">
-        <span class="mini-cassette" aria-hidden="true"><i></i><i></i></span>
-        <div>
-          <span class="mini-kicker">NOW PLAYING</span>
-          <strong id="nowPlaying">01 / INTRO</strong>
-        </div>
-        <span class="timecode" id="timecode">00:00</span>
-      </div>
-      <nav class="track-nav" aria-label="Primary navigation">
-        <a href="#research">research</a>
-        <a href="#outputs">outputs</a>
-        <a href="#labnotes">notes</a>
-        <a href="#contact">contact</a>
+  <div class="site" id="site" aria-hidden="true">
+    <header class="site-header">
+      <a class="identity" href="#top">
+        <span>Justin Zhang</span>
+        <span class="identity-cn">张丞阳</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <button class="rewind" id="replayIntro" aria-label="Replay cassette intro">↺ tape</button>
     </header>
 
-    <main>
-      <section class="hero" id="home" data-track="01 / INTRO">
-        <div class="hero-copy">
-          <p class="eyebrow">SIDE A · TRACK 01 · UCLA</p>
-          <h1><span>Justin</span><br>Zhang</h1>
-          <p class="hero-cn">张丞阳</p>
-          <p class="hero-lede">I study how intelligent systems learn structure from language, perception, and experience — then build computational models to make those ideas testable.</p>
-          <div class="signal-line">
-            <span class="signal-dot" aria-hidden="true"></span>
-            <span>current signal: language × cognition × AI</span>
-          </div>
-          <div class="hero-actions">
-            <a class="pixel-button solid" href="#research">play research ▶</a>
-            <a class="pixel-button paper" href="https://github.com/chengyangzh" target="_blank" rel="noopener">github ↗</a>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-main">
+          <p class="overline">UCLA · LANGUAGE × COGNITION × AI</p>
+          <h1>I study how intelligent systems learn structure from language and experience.</h1>
+          <p class="lede">I’m an undergraduate at UCLA working across computational linguistics, cognitive science, and AI. I’m especially interested in representations, emergence, and the places where human behavior gives us a better test for machine intelligence.</p>
+          <div class="hero-links">
+            <a href="#work">Selected work ↓</a>
+            <a href="https://github.com/chengyangzh" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
 
-        <div class="pixel-window" aria-label="Pixel-art research desk scene">
-          <div class="window-chrome">
-            <span>FIELD_NOTE_09_08_26.PNG</span>
-            <span>×</span>
+        <aside class="hero-aside" aria-label="Current research profile">
+          <dl>
+            <div><dt>Based</dt><dd>Los Angeles, CA</dd></div>
+            <div><dt>Studying</dt><dd>Cognitive Science<br>Linguistics &amp; Computer Science</dd></div>
+            <div><dt>Current</dt><dd>Historical phonology<br>LLM evaluation<br>Human–AI cognition</dd></div>
+          </dl>
+          <div class="micro-mascot" aria-hidden="true" title="tomato scholar">
+            <span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span>
+            <span class="tomato"></span><span class="eye e1"></span><span class="eye e2"></span>
+            <span class="pen"></span>
           </div>
-          <svg class="pixel-scene" viewBox="0 0 320 260" role="img" aria-label="Pixel art desk, books, monitor, waveform and tomato scholar mascot" shape-rendering="crispEdges">
-            <rect width="320" height="260" fill="#14213d"/>
-            <rect x="0" y="0" width="320" height="22" fill="#0c1326"/>
-            <rect x="18" y="42" width="284" height="132" fill="#1f3372"/>
-            <rect x="28" y="54" width="88" height="64" fill="#f4efdf"/>
-            <rect x="34" y="60" width="76" height="52" fill="#111827"/>
-            <rect x="40" y="86" width="8" height="8" fill="#d8ff5f"/>
-            <rect x="50" y="78" width="8" height="16" fill="#ff5d57"/>
-            <rect x="60" y="72" width="8" height="22" fill="#f4efdf"/>
-            <rect x="70" y="82" width="8" height="12" fill="#d8ff5f"/>
-            <rect x="80" y="68" width="8" height="26" fill="#ffcf3f"/>
-            <rect x="90" y="80" width="8" height="14" fill="#f4efdf"/>
-            <rect x="130" y="58" width="150" height="74" fill="#0b1020"/>
-            <rect x="138" y="66" width="134" height="58" fill="#2447ff"/>
-            <polyline points="142,97 152,97 158,80 166,112 174,91 182,98 190,98 198,73 205,113 212,91 220,98 230,98 236,82 244,108 252,97 268,97" fill="none" stroke="#d8ff5f" stroke-width="4"/>
-            <rect x="194" y="132" width="24" height="10" fill="#f4efdf"/>
-            <rect x="184" y="142" width="44" height="7" fill="#f4efdf"/>
-            <rect x="22" y="160" width="276" height="12" fill="#ffcf3f"/>
-            <rect x="20" y="172" width="280" height="14" fill="#5a3d2b"/>
-            <rect x="34" y="186" width="18" height="58" fill="#5a3d2b"/>
-            <rect x="268" y="186" width="18" height="58" fill="#5a3d2b"/>
-            <rect x="236" y="143" width="18" height="17" fill="#ff5d57"/>
-            <rect x="254" y="147" width="8" height="9" fill="none" stroke="#ff5d57" stroke-width="4"/>
-            <rect x="58" y="132" width="30" height="6" fill="#d8ff5f"/>
-            <rect x="52" y="138" width="42" height="6" fill="#f4efdf"/>
-            <rect x="60" y="144" width="34" height="6" fill="#ff5d57"/>
-            <rect x="126" y="158" width="54" height="6" fill="#f4efdf" opacity=".8"/>
-            <rect x="128" y="204" width="12" height="26" fill="#f4efdf"/>
-            <rect x="160" y="204" width="12" height="26" fill="#f4efdf"/>
-            <rect x="136" y="180" width="28" height="32" fill="#d8ff5f"/>
-            <rect x="132" y="176" width="36" height="30" fill="#ff5d57"/>
-            <rect x="138" y="182" width="6" height="6" fill="#111827"/>
-            <rect x="156" y="182" width="6" height="6" fill="#111827"/>
-            <rect x="146" y="194" width="8" height="4" fill="#111827"/>
-            <rect x="140" y="170" width="6" height="8" fill="#3a8b45"/>
-            <rect x="154" y="168" width="6" height="10" fill="#3a8b45"/>
-            <rect x="148" y="166" width="6" height="12" fill="#3a8b45"/>
-            <rect x="172" y="188" width="42" height="5" fill="#f4efdf" transform="rotate(-18 172 188)"/>
-            <rect x="206" y="176" width="8" height="8" fill="#ffcf3f"/>
-          </svg>
-          <div class="window-caption">
-            <span>tomato scholar / build 02</span>
-            <span>REC ●</span>
+        </aside>
+      </section>
+
+      <section class="section" id="work">
+        <div class="section-head">
+          <h2>Selected work</h2>
+          <span>01 — 04</span>
+        </div>
+
+        <div class="work-list">
+          <article class="work-item">
+            <div class="work-index">01</div>
+            <div class="work-title">
+              <p class="work-meta">Computational linguistics · 2026 —</p>
+              <h3>Philologist-inspired phonological reconstruction</h3>
+            </div>
+            <p class="work-desc">Reconstructing historical Chinese sound systems with explicit time planes, phonological categories, and evidence from Yan Shigu’s annotations rather than treating reconstruction as a flat character-to-sound problem.</p>
+            <div class="work-mark" aria-hidden="true">↗</div>
+          </article>
+
+          <article class="work-item">
+            <div class="work-index">02</div>
+            <div class="work-title">
+              <p class="work-meta">Perception · VR · 2025 —</p>
+              <h3>Stereokinetic depth perception</h3>
+            </div>
+            <p class="work-desc">A Unity/OpenXR psychophysics system for tracing perceived 3D contours in rotating stimuli, paired with vision-model evaluation on the same perceptual phenomenon.</p>
+            <a class="work-mark" href="https://github.com/xvr2e7/trefoil-depth" target="_blank" rel="noopener" aria-label="Open stereokinetic depth project">↗</a>
+          </article>
+
+          <article class="work-item">
+            <div class="work-index">03</div>
+            <div class="work-title">
+              <p class="work-meta">Language models · 2026 —</p>
+              <h3>Filler–gap expectations and plausibility</h3>
+            </div>
+            <p class="work-desc">Comparing human online processing with language-model surprisal to ask when semantic plausibility changes a model’s expectation for long-distance syntactic structure.</p>
+            <div class="work-mark" aria-hidden="true">↗</div>
+          </article>
+
+          <article class="work-item">
+            <div class="work-index">04</div>
+            <div class="work-title">
+              <p class="work-meta">Vision · privacy · 2026 —</p>
+              <h3>Face privacy across humans and models</h3>
+            </div>
+            <p class="work-desc">Studying how privacy-preserving image transformations affect human recognition and face-recognition systems differently, including diffusion-based privacy methods.</p>
+            <div class="work-mark" aria-hidden="true">↗</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section" id="about">
+        <div class="section-head compact">
+          <h2>About</h2>
+          <span>02</span>
+        </div>
+        <div class="split-grid">
+          <div class="large-copy">
+            <p>I like research questions that begin with a strange human phenomenon and end with a computational claim precise enough to fail.</p>
+          </div>
+          <div class="body-copy">
+            <p>My work moves between language, perception, and machine intelligence. Across projects, I keep returning to the same question: what kinds of structure do intelligent systems discover, and what does their success or failure tell us about representation?</p>
+            <p>That has taken me from historical Chinese phonology and multilingual semantics to VR psychophysics, LLM surprisal, face privacy, and agent evaluation.</p>
           </div>
         </div>
       </section>
 
-      <section class="track-section cobalt" id="about" data-track="02 / PROFILE">
-        <div class="track-number">02</div>
-        <div class="track-content two-col">
-          <div>
-            <p class="section-kicker">PROFILE / CURRENTLY</p>
-            <h2>Research, but with more than one lens.</h2>
+      <section class="section" id="notes">
+        <div class="section-head">
+          <h2>Signals</h2>
+          <span>selected outputs &amp; questions</span>
+        </div>
+
+        <div class="signal-list">
+          <div class="signal-item">
+            <span class="signal-year">2026</span>
+            <div>
+              <h3>Towards Human-Level Phonological Reconstruction: A Philologist-Inspired Computational Approach</h3>
+              <p>Collaborative manuscript on computational historical phonology · under review at <em>Computational Linguistics</em>.</p>
+            </div>
           </div>
-          <div class="profile-copy">
-            <p>I’m a UCLA undergraduate in Cognitive Science and Linguistics &amp; Computer Science. My work moves between computational linguistics, historical phonology, perception, and AI — especially questions where the representation itself is the hard part.</p>
-            <p>I like projects that start from a weird human phenomenon, force a precise computational claim, and then survive contact with data.</p>
-            <div class="ticker" aria-label="Research interests">
-              <span>emergence</span><span>representation learning</span><span>phonology</span><span>agents</span><span>cognitive modeling</span><span>multilingual NLP</span>
+          <div class="signal-item">
+            <span class="signal-year">?</span>
+            <div>
+              <h3>Can an artificial learner infer a rule it was never explicitly given?</h3>
+              <p>A recurring question behind my work on emergence, linguistic structure, and generalization.</p>
+            </div>
+          </div>
+          <div class="signal-item">
+            <span class="signal-year">?</span>
+            <div>
+              <h3>Which human mistakes are actually signatures of useful representations?</h3>
+              <p>I’m interested in turning human quirks into stronger evaluations of machine intelligence.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="track-section cream" id="research" data-track="03 / RESEARCH">
-        <div class="track-number">03</div>
-        <div class="track-content">
-          <p class="section-kicker">SELECTED RESEARCH / FOUR TAPES</p>
-          <h2>Research shelf</h2>
-          <div class="tape-grid">
-            <article class="research-tape red">
-              <div class="tape-spine">A1</div>
-              <div class="tape-body">
-                <p class="status">COMPUTATIONAL LINGUISTICS · ACTIVE</p>
-                <h3>Philologist-inspired phonological reconstruction</h3>
-                <p>Modeling historical Chinese sound systems with explicit historical time planes, category structure, and evidence from Yan Shigu’s annotations rather than treating reconstruction as a flat character-to-sound problem.</p>
-                <div class="chips"><span>historical phonology</span><span>representation</span><span>Cambridge</span></div>
-              </div>
-            </article>
-
-            <article class="research-tape yellow">
-              <div class="tape-spine">A2</div>
-              <div class="tape-body">
-                <p class="status">PERCEPTION · VR</p>
-                <h3>Stereokinetic depth as a human–model test</h3>
-                <p>Building a Unity/OpenXR experiment for perceived 3D contours in stereokinetic motion, with real-time hand tracing and parallel evaluation of vision models on the same stimulus family.</p>
-                <div class="chips"><span>Unity</span><span>OpenXR</span><span>psychophysics</span></div>
-                <a href="https://github.com/xvr2e7/trefoil-depth" target="_blank" rel="noopener">view project ↗</a>
-              </div>
-            </article>
-
-            <article class="research-tape lime">
-              <div class="tape-spine">A3</div>
-              <div class="tape-body">
-                <p class="status">LANGUAGE MODELS · PROCESSING</p>
-                <h3>When plausibility meets filler–gap expectations</h3>
-                <p>Comparing human processing signatures with language-model surprisal on long-distance dependencies, asking where semantic plausibility changes the expectation for a syntactic gap.</p>
-                <div class="chips"><span>surprisal</span><span>LLMs</span><span>syntax × semantics</span></div>
-              </div>
-            </article>
-
-            <article class="research-tape blue">
-              <div class="tape-spine">A4</div>
-              <div class="tape-body">
-                <p class="status">VISION · PRIVACY</p>
-                <h3>Face privacy: humans vs. recognition systems</h3>
-                <p>Testing how privacy-preserving distortions change recognition for people and face-recognition models, and extending the comparison toward diffusion-based privacy methods.</p>
-                <div class="chips"><span>face recognition</span><span>privacy</span><span>human–AI gap</span></div>
-              </div>
-            </article>
-          </div>
+      <section class="section contact" id="contact">
+        <div>
+          <p class="overline">CONTACT</p>
+          <h2>Say hello.</h2>
+          <p>I’m always happy to talk about language, AI, cognitive modeling, or strange research questions.</p>
         </div>
-      </section>
-
-      <section class="track-section black" id="outputs" data-track="04 / OUTPUTS">
-        <div class="track-number">04</div>
-        <div class="track-content">
-          <p class="section-kicker">OUTPUTS / THINGS THAT LEFT THE LAB</p>
-          <h2>Selected signals</h2>
-          <div class="output-list">
-            <article>
-              <span class="output-year">2026</span>
-              <div>
-                <h3>Towards Human-Level Phonological Reconstruction: A Philologist-Inspired Computational Approach</h3>
-                <p>Collaborative manuscript on computational historical phonology · under review at <em>Computational Linguistics</em>.</p>
-              </div>
-              <span class="output-type">MANUSCRIPT</span>
-            </article>
-            <article>
-              <span class="output-year">2026</span>
-              <div>
-                <h3>Diachronic semantic change in a 23M-character Chinese corpus</h3>
-                <p>Period-specific embeddings, Procrustes alignment, and semantic axes for tracking pejoration, urban identity, and cultural change.</p>
-              </div>
-              <span class="output-type">RESEARCH</span>
-            </article>
-            <article>
-              <span class="output-year">2025</span>
-              <div>
-                <h3>Chinese sexual humor, indirectness, and relational ease</h3>
-                <p>Survey and corpus work presented during UCLA Undergraduate Research Week.</p>
-              </div>
-              <span class="output-type">PRESENTATION</span>
-            </article>
-          </div>
+        <div class="contact-links">
+          <a href="https://github.com/chengyangzh" target="_blank" rel="noopener"><span>GitHub</span><span>↗</span></a>
+          <a href="mailto:justinzh0421@g.ucla.edu"><span>Email</span><span>↗</span></a>
         </div>
-      </section>
-
-      <section class="track-section signal" id="labnotes" data-track="05 / LAB NOTES">
-        <div class="track-number">05</div>
-        <div class="track-content">
-          <p class="section-kicker">SIDE B / OPEN QUESTIONS</p>
-          <h2>Things I keep thinking about</h2>
-          <div class="note-grid">
-            <article>
-              <span>01</span>
-              <h3>Can a model discover a useful representation before we name it?</h3>
-              <p>Especially when humans rely on partial cues, category structure, or tacit conventions instead of a clean label space.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>What should count as emergence?</h3>
-              <p>Not “the loss went down,” but a behavior or internal structure that appears only when a system crosses a meaningful constraint.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Where do human shortcuts beat scale?</h3>
-              <p>Historical reconstruction, geolocation, language learning, and other problems where the right prior can be worth more than another million examples.</p>
-            </article>
-          </div>
-          <div class="toolbox">
-            <span class="toolbox-label">TOOLBOX</span>
-            <span>Python</span><span>PyTorch</span><span>C++</span><span>Unity / C#</span><span>OpenXR</span><span>Praat</span><span>Transformers</span><span>corpus methods</span><span>experimental design</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="track-section contact-section" id="contact" data-track="06 / CONTACT">
-        <div class="track-number">06</div>
-        <div class="track-content contact-grid">
-          <div>
-            <p class="section-kicker">END OF SIDE A</p>
-            <h2>Want to make something strange and rigorous?</h2>
-          </div>
-          <div class="contact-card">
-            <p>Research collaborations, weird language questions, model evaluation ideas, or just a good paper recommendation.</p>
-            <a class="contact-link" href="mailto:justinzh0421@g.ucla.edu">justinzh0421@g.ucla.edu ↗</a>
-            <a class="contact-link" href="https://github.com/chengyangzh" target="_blank" rel="noopener">github.com/chengyangzh ↗</a>
-          </div>
-        </div>
-        <footer>
-          <span>JZ-001 · RECORDED IN LOS ANGELES / BEIJING · 2026</span>
-          <button id="backToTop">rewind to track 01 ↺</button>
-        </footer>
       </section>
     </main>
+
+    <footer>
+      <span>Justin Zhang · 张丞阳</span>
+      <button class="plain-button" id="replayIntro">replay tape</button>
+      <span>© 2026</span>
+    </footer>
   </div>
 
   <script src="script.js"></script>
