@@ -3,250 +3,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Justin Zhang — UCLA undergraduate working across language, cognition, and AI.">
-  <meta name="theme-color" content="#f3f1ea">
-  <title>Justin Zhang · 张丞阳</title>
+  <meta name="description" content="Justin (Chengyang) Zhang — UCLA undergraduate researching language, cognition, and AI.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Justin Zhang | UCLA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="intro-open">
-
-  <section class="intro" id="intro" aria-labelledby="introTitle">
-    <div class="intro-topline">
-      <span>JZ / ARCHIVE 01</span>
-      <button class="plain-button" id="skipIntro">skip</button>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#about" class="brand">Justin Zhang</a>
+      <nav aria-label="Primary navigation">
+        <a href="#about">about</a>
+        <a href="#research">research</a>
+        <a href="#projects">projects</a>
+        <a href="#cv">cv</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
     </div>
+  </header>
 
-    <div class="intro-stage">
-      <p class="intro-kicker">personal field recording · side a</p>
-      <h1 id="introTitle">A small tape before the index.</h1>
-      <p class="intro-sub">An old field tape of work, questions, and things still in progress.</p>
-
-      <div class="player-scene" id="playerScene">
-        <div class="walkman" id="walkman" aria-label="Vintage cassette field player">
-          <div class="walkman-shell-detail" aria-hidden="true"></div>
-          <div class="walkman-meta">
-            <span>FIELD PLAYER</span>
-            <span>FP-01</span>
-          </div>
-          <div class="walkman-screen">
-            <span class="screen-led" aria-hidden="true"></span>
-            <span id="slotStatus">NO TAPE</span>
-            <span id="introCounter">00:00</span>
-          </div>
-          <div class="walkman-door" id="slot">
-            <div class="door-gloss" aria-hidden="true"></div>
-            <div class="door-window" aria-hidden="true">
-              <span class="door-reel left"></span>
-              <span class="door-strip"></span>
-              <span class="door-reel right"></span>
-            </div>
-            <span class="drop-hint">INSERT / DROP TAPE</span>
-          </div>
-          <div class="controls" aria-hidden="true">
-            <span>■</span><span>◀◀</span><span>▶</span><span>▶▶</span>
-          </div>
-          <div class="walkman-footer" aria-hidden="true">
-            <span>stereo cassette field recorder</span>
-            <span>auto reverse</span>
-          </div>
+  <main class="container">
+    <section class="about-grid" id="about">
+      <div class="about-copy">
+        <p class="eyebrow">UCLA · Cognitive Science · Linguistics & Computer Science</p>
+        <h1>Justin <span>Chengyang</span> Zhang</h1>
+        <p class="lead">I study how intelligent systems learn structure from language, perception, and experience.</p>
+        <p>
+          I am an undergraduate at UCLA working across computational linguistics, cognitive science, and AI.
+          My current interests include representation learning, historical phonology, language-model evaluation,
+          emergence, and human–AI cognition.
+        </p>
+        <p>
+          I am especially drawn to research questions that begin with a strange human phenomenon and end with a computational claim precise enough to fail.
+        </p>
+        <div class="quick-links">
+          <a href="mailto:justinzh0421@g.ucla.edu">email</a>
+          <a href="https://github.com/chengyangzh" target="_blank" rel="noopener">github</a>
         </div>
-
-        <button class="cassette" id="cassette" draggable="true" aria-label="Insert field notes cassette and enter site">
-          <span class="cassette-shadow" aria-hidden="true"></span>
-          <span class="cassette-shell">
-            <span class="cassette-edge top" aria-hidden="true"></span>
-            <span class="cassette-edge bottom" aria-hidden="true"></span>
-            <span class="cassette-screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-
-            <span class="cassette-label-paper">
-              <span class="label-top">J. ZHANG · UCLA · 2026</span>
-              <span class="label-title">FIELD NOTES</span>
-              <span class="label-sub">language / cognition / artificial intelligence</span>
-            </span>
-
-            <span class="cassette-window">
-              <span class="window-glare" aria-hidden="true"></span>
-              <span class="reel left"><span class="hub"></span></span>
-              <span class="tape-strip" aria-hidden="true"></span>
-              <span class="reel right"><span class="hub"></span></span>
-            </span>
-
-            <span class="cassette-side">SIDE A · 46 MIN</span>
-            <span class="cassette-bottom-cutouts" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="cassette-wear" aria-hidden="true"></span>
-            <span class="cassette-dust" aria-hidden="true"></span>
-            <span class="cassette-scratches" aria-hidden="true"></span>
-          </span>
-        </button>
       </div>
 
-      <p class="intro-instruction" id="introInstruction">click the tape, or drag it into the player</p>
-    </div>
+      <aside class="portrait-stack" aria-label="Portrait and tomato scholar avatar">
+        <figure class="portrait-frame">
+          <img src="assets/justin-portrait.webp" alt="Portrait of Justin Zhang">
+        </figure>
 
-    <div class="intro-bottomline">
-      <span>LOS ANGELES, CA</span>
-      <span>2026</span>
-    </div>
-  </section>
+        <figure class="polaroid">
+          <span class="paperclip" aria-hidden="true"></span>
+          <img src="assets/tomato-avatar.webp" alt="Tomato scholar avatar in a research study">
+          <figcaption>field notes / alter ego</figcaption>
+        </figure>
+      </aside>
+    </section>
 
-  <div class="site" id="site" aria-hidden="true">
-    <header class="site-header">
-      <a class="identity" href="#top">
-        <span>Justin Zhang</span>
-        <span class="identity-cn">张丞阳</span>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#notes">Notes</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <section class="section" id="research">
+      <div class="section-title">
+        <h2>research experience</h2>
+        <span>selected + ongoing</span>
+      </div>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-main">
-          <p class="overline">UCLA · LANGUAGE × COGNITION × AI</p>
-          <h1>I study how intelligent systems learn structure from language and experience.</h1>
-          <p class="lede">I’m an undergraduate at UCLA working across computational linguistics, cognitive science, and AI. I’m especially interested in representations, emergence, and the places where human behavior gives us a better test for machine intelligence.</p>
-          <div class="hero-links">
-            <a href="#work">Selected work ↓</a>
-            <a href="https://github.com/chengyangzh" target="_blank" rel="noopener">GitHub ↗</a>
+      <div class="timeline">
+        <article class="entry">
+          <div class="entry-meta">Jan 2026 — present</div>
+          <div class="entry-body">
+            <h3>Student Researcher <span>· University of Cambridge · Prof. Weiwei Sun</span></h3>
+            <p>Developing a philologist-inspired, category-based framework for joint Middle Chinese–Old Mandarin reconstruction using distinctive features, modern dialect reflexes, fanqie, rhyme-table structure, and cross-period sound-change constraints.</p>
+            <p>Added historical time planes grounded in Wang Li’s phonological system and evaluated reconstructions against expert philological analyses and Sino-Xenic evidence.</p>
           </div>
-        </div>
+        </article>
 
-        <aside class="hero-aside" aria-label="Current research profile">
-          <dl>
-            <div><dt>Based</dt><dd>Los Angeles, CA</dd></div>
-            <div><dt>Studying</dt><dd>Cognitive Science<br>Linguistics &amp; Computer Science</dd></div>
-            <div><dt>Current</dt><dd>Historical phonology<br>LLM evaluation<br>Human–AI cognition</dd></div>
-          </dl>
-          <div class="micro-mascot" aria-hidden="true" title="tomato scholar">
-            <span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span>
-            <span class="tomato"></span><span class="eye e1"></span><span class="eye e2"></span>
-            <span class="pen"></span>
+        <article class="entry">
+          <div class="entry-meta">Jul 2026 — present</div>
+          <div class="entry-body">
+            <h3>Project Lead Developer <span>· PKU Century Jinyuan “Tengyun” Clinical Translation Project</span></h3>
+            <p>Building a hybrid physics-informed ML system for hemodialysis adequacy prediction and prescription optimization, including XGBoost/CatBoost models trained on 246,590 longitudinal sessions.</p>
+            <p>Developed an interactive recommendation tool for blood-flow-rate and treatment-duration combinations.</p>
           </div>
-        </aside>
-      </section>
+        </article>
 
-      <section class="section" id="work">
-        <div class="section-head">
-          <h2>Selected work</h2>
-          <span>01 — 04</span>
-        </div>
-
-        <div class="work-list">
-          <article class="work-item">
-            <div class="work-index">01</div>
-            <div class="work-title">
-              <p class="work-meta">Computational linguistics · 2026 —</p>
-              <h3>Philologist-inspired phonological reconstruction</h3>
-            </div>
-            <p class="work-desc">Reconstructing historical Chinese sound systems with explicit time planes, phonological categories, and evidence from Yan Shigu’s annotations rather than treating reconstruction as a flat character-to-sound problem.</p>
-            <div class="work-mark" aria-hidden="true">↗</div>
-          </article>
-
-          <article class="work-item">
-            <div class="work-index">02</div>
-            <div class="work-title">
-              <p class="work-meta">Perception · VR · 2025 —</p>
-              <h3>Stereokinetic depth perception</h3>
-            </div>
-            <p class="work-desc">A Unity/OpenXR psychophysics system for tracing perceived 3D contours in rotating stimuli, paired with vision-model evaluation on the same perceptual phenomenon.</p>
-            <a class="work-mark" href="https://github.com/xvr2e7/trefoil-depth" target="_blank" rel="noopener" aria-label="Open stereokinetic depth project">↗</a>
-          </article>
-
-          <article class="work-item">
-            <div class="work-index">03</div>
-            <div class="work-title">
-              <p class="work-meta">Language models · 2026 —</p>
-              <h3>Filler–gap expectations and plausibility</h3>
-            </div>
-            <p class="work-desc">Comparing human online processing with language-model surprisal to ask when semantic plausibility changes a model’s expectation for long-distance syntactic structure.</p>
-            <div class="work-mark" aria-hidden="true">↗</div>
-          </article>
-
-          <article class="work-item">
-            <div class="work-index">04</div>
-            <div class="work-title">
-              <p class="work-meta">Vision · privacy · 2026 —</p>
-              <h3>Face privacy across humans and models</h3>
-            </div>
-            <p class="work-desc">Studying how privacy-preserving image transformations affect human recognition and face-recognition systems differently, including diffusion-based privacy methods.</p>
-            <div class="work-mark" aria-hidden="true">↗</div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section split-section" id="about">
-        <div class="section-head compact">
-          <h2>About</h2>
-          <span>02</span>
-        </div>
-        <div class="split-grid">
-          <div class="large-copy">
-            <p>I like research questions that begin with a strange human phenomenon and end with a computational claim precise enough to fail.</p>
+        <article class="entry">
+          <div class="entry-meta">Oct 2025 — present</div>
+          <div class="entry-body">
+            <h3>Project Lead <span>· UCLA Perceptual Processing & Computational Lab</span></h3>
+            <p>Built Unity/OpenXR psychophysics infrastructure for stereokinetic depth perception with real-time hand-pose acquisition, calibration, practice, and multi-trial experiment control.</p>
+            <p>Also contributing to face-privacy research across 272 participants, 4,254 face pairs, five recognition models, and diffusion-based adversarial makeup evaluation.</p>
           </div>
-          <div class="body-copy">
-            <p>My work moves between language, perception, and machine intelligence. Across projects, I keep returning to the same question: what kinds of structure do intelligent systems discover, and what does their success or failure tell us about representation?</p>
-            <p>That has taken me from historical Chinese phonology and multilingual semantics to VR psychophysics, LLM surprisal, face privacy, and agent evaluation.</p>
-          </div>
-        </div>
-      </section>
+        </article>
 
-      <section class="section" id="notes">
-        <div class="section-head">
-          <h2>Signals</h2>
-          <span>selected outputs &amp; questions</span>
-        </div>
+        <article class="entry">
+          <div class="entry-meta">Mar 2026 — present</div>
+          <div class="entry-body">
+            <h3>Research Assistant <span>· UCLA Language Processing Lab · Prof. Jesse Harris</span></h3>
+            <p>Studying how semantic plausibility shapes filler-gap processing and comparing human behavior with language-model predictions.</p>
+            <p>Developing GPT-2/HuggingFace surprisal pipelines at critical Verb, Object, and Adverb regions and preparing analysis-ready human–LLM comparison data.</p>
+          </div>
+        </article>
 
-        <div class="signal-list">
-          <div class="signal-item">
-            <span class="signal-year">2026</span>
-            <div>
-              <h3>Towards Human-Level Phonological Reconstruction: A Philologist-Inspired Computational Approach</h3>
-              <p>Collaborative manuscript on computational historical phonology · under review at <em>Computational Linguistics</em>.</p>
-            </div>
+        <article class="entry">
+          <div class="entry-meta">Sep 2024 — Sep 2025</div>
+          <div class="entry-body">
+            <h3>Research Assistant / Intern <span>· Peking University Mao Lab</span></h3>
+            <p>Designed a high-sensitivity 3D Spatial Reproduction Paradigm and conducted five behavioral + VR experiments on interactions between temporal and spatial magnitude perception.</p>
+            <p>Conducted cross-linguistic gesture analysis on how speakers of typologically distinct languages encode temporal and spatial magnitude.</p>
           </div>
-          <div class="signal-item">
-            <span class="signal-year">?</span>
-            <div>
-              <h3>Can an artificial learner infer a rule it was never explicitly given?</h3>
-              <p>A recurring question behind my work on emergence, linguistic structure, and generalization.</p>
-            </div>
-          </div>
-          <div class="signal-item">
-            <span class="signal-year">?</span>
-            <div>
-              <h3>Which human mistakes are actually signatures of useful representations?</h3>
-              <p>I’m interested in turning human quirks into stronger evaluations of machine intelligence.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </article>
 
-      <section class="section contact" id="contact">
+        <article class="entry">
+          <div class="entry-meta">Jan 2026 — Apr 2026</div>
+          <div class="entry-body">
+            <h3>Student Researcher <span>· UCLA Undergraduate Research Week · Prof. Sam Cumming</span></h3>
+            <p>Constructed a 23M-character diachronic Chinese corpus and trained period-specific Word2Vec models aligned with Orthogonal Procrustes.</p>
+            <p>Engineered contrastive semantic axes to trace pejorative, urban-coding, and cultural-identity trajectories across historical periods.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-title">
+        <h2>projects</h2>
+        <span>systems + experiments</span>
+      </div>
+
+      <div class="project-list">
+        <article class="project">
+          <div>
+            <p class="project-kicker">agent systems · 2026</p>
+            <h3>Echo — structure-first analogy agent</h3>
+          </div>
+          <div>
+            <p>Built a minimal agent runtime that retrieves and evaluates analogies by relational structure rather than surface similarity. Echo uses controlled case cards, external candidate retrieval, explicit mapping boards, rejection logic, durable SQLite transcripts, and deterministic tests for near, far, and surface-trap cases.</p>
+            <p class="project-note">Tools: Python, LLM APIs, retrieval, agent loops, evaluation harnesses, SQLite</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <p class="project-kicker">vr / perception</p>
+            <h3>Stereokinetic depth toolkit</h3>
+          </div>
+          <div>
+            <p>Unity/OpenXR infrastructure for capturing 3D hand traces of perceived depth contours, paired with a browser-based inspection workflow and model evaluation.</p>
+            <a href="https://github.com/xvr2e7/trefoil-depth" target="_blank" rel="noopener">view on GitHub ↗</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <p class="project-kicker">historical phonology</p>
+            <h3>Philologist-inspired reconstruction</h3>
+          </div>
+          <div>
+            <p>Category-based historical phonological inference with explicit time planes, reconstructed inventories, and external evaluation against Wang Li and Sino-Xenic evidence.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cv-section" id="cv">
+      <div class="section-title">
+        <h2>cv</h2>
+        <span>education · skills · honors</span>
+      </div>
+
+      <div class="cv-grid">
         <div>
-          <p class="overline">CONTACT</p>
-          <h2>Say hello.</h2>
-          <p>I’m always happy to talk about language, AI, cognitive modeling, or strange research questions.</p>
+          <h3>education</h3>
+          <p><strong>University of California, Los Angeles</strong><br>
+          B.S. Cognitive Science (Specialization in Computing)<br>
+          B.A. Linguistics & Computer Science<br>
+          Expected June 2029 · GPA 3.89</p>
         </div>
-        <div class="contact-links">
-          <a href="https://github.com/chengyangzh" target="_blank" rel="noopener"><span>GitHub</span><span>↗</span></a>
-          <a href="mailto:justinzh0421@g.ucla.edu"><span>Email</span><span>↗</span></a>
+        <div>
+          <h3>skills</h3>
+          <p>Python, C++, C#, PyTorch, TensorFlow, HTML/CSS/JavaScript, Unity, OpenXR, Praat, LingPy, R, SPSS, Qualtrics.</p>
+          <p>Mandarin, Cantonese, Spanish.</p>
         </div>
-      </section>
-    </main>
+        <div>
+          <h3>honors</h3>
+          <p>Dean’s Honor List ×2 · NYT “Where We Are” Photo Essay finalist · John Locke Global Essay Contest merit · AP Scholar with Distinction · iGEM Silver · USABO Bronze.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <footer>
+  <footer class="footer">
+    <div class="container footer-inner">
       <span>Justin Zhang · 张丞阳</span>
-      <button class="plain-button" id="replayIntro">replay tape</button>
-      <span>© 2026</span>
-    </footer>
-  </div>
+      <span>Los Angeles, CA · 2026</span>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
