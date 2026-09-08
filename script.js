@@ -1,144 +1,181 @@
-// ---------- typed terminal line ----------
-const lines = [
-  "compiling a personal grammar...",
-  "cross-linguistic animacy hierarchy: loading",
-  "building models that remember where language comes from",
-  "student researcher, mostly caffeinated"
-];
-const termEl = document.getElementById('terminal');
-let li = 0, ci = 0, deleting = false;
+const gate = document.getElementById('tapeGate');
+const siteShell = document.getElementById('siteShell');
+const cassette = document.getElementById('cassette');
+const dropSlot = document.getElementById('dropSlot');
+const gateStatus = document.getElementById('gateStatus');
+const gateCounter = document.getElementById('gateCounter');
+const bootFill = document.getElementById('bootFill');
+const skipIntro = document.getElementById('skipIntro');
+const replayIntro = document.getElementById('replayIntro');
+const soundToggle = document.getElementById('soundToggle');
+const nowPlaying = document.getElementById('nowPlaying');
+const timecode = document.getElementById('timecode');
+const backToTop = document.getElementById('backToTop');
 
-function typeLoop(){
-  const current = lines[li];
-  if(!deleting){
-    ci++;
-    termEl.textContent = current.slice(0, ci);
-    if(ci === current.length){
-      deleting = true;
-      setTimeout(typeLoop, 1600);
-      return;
-    }
-  } else {
-    ci--;
-    termEl.textContent = current.slice(0, ci);
-    if(ci === 0){
-      deleting = false;
-      li = (li + 1) % lines.length;
-    }
+let entering = false;
+let soundOn = true;
+let audioContext = null;
+
+function getAudioContext(){
+  if(!audioContext){
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if(Ctx) audioContext = new Ctx();
   }
-  setTimeout(typeLoop, deleting ? 28 : 42);
-}
-typeLoop();
-
-// ---------- toy sentence tagger ----------
-const DET   = new Set(['the','a','an','this','that','these','those','my','your','his','her','its','our','their']);
-const PRON  = new Set(['i','you','he','she','it','we','they','me','him','her','us','them','who','what','which']);
-const PREP  = new Set(['in','on','at','by','for','with','about','against','between','into','through','during','before','after','above','below','to','from','of','over','under']);
-const CONJ  = new Set(['and','or','but','so','yet','nor','because','although','if','while']);
-const BE    = new Set(['am','is','are','was','were','be','been','being']);
-const COMMON_VERBS = new Set(['study','build','parse','run','walk','talk','sat','sit','eat','ate','go','went','make','made','write','wrote','read','think','thought','know','knew','see','saw','love','like','play','jump','sing','sang','dance','speak','spoke','learn','teach','taught','have','has','had','do','does','did','say','said','get','got','give','gave','take','took']);
-const COMMON_ADJ = new Set(['big','small','good','bad','happy','sad','quick','slow','old','new','tall','short','loud','quiet','bright','dark','soft','hard','clean','smooth','pixel','pixelated','fun','interactive','creative']);
-
-function tag(word){
-  const w = word.toLowerCase().replace(/[^a-z']/g, '');
-  if(w === '') return 'other';
-  if(DET.has(w)) return 'det';
-  if(PRON.has(w)) return 'pron';
-  if(PREP.has(w)) return 'prep';
-  if(CONJ.has(w)) return 'other';
-  if(BE.has(w) || COMMON_VERBS.has(w)) return 'verb';
-  if(COMMON_ADJ.has(w)) return 'adj';
-  if(w.endsWith('ing') || w.endsWith('ed')) return 'verb';
-  if(w.endsWith('ly')) return 'adj';
-  return 'noun';
+  return audioContext;
 }
 
-const LABELS = { det:'DET', pron:'PRON', prep:'PREP', verb:'V', adj:'ADJ', noun:'N', other:'·' };
-
-const input  = document.getElementById('parseInput');
-const btn    = document.getElementById('parseBtn');
-const output = document.getElementById('parseOutput');
-
-function runParse(){
-  const text = input.value.trim();
-  output.innerHTML = '';
-  if(!text) return;
-  const words = text.split(/\s+/);
-  words.forEach((word, i) => {
-    const category = tag(word);
-    const el = document.createElement('div');
-    el.className = 'tok ' + category;
-    el.style.animationDelay = (i * 0.05) + 's';
-    el.innerHTML = `<span>${word}</span><small>${LABELS[category]}</small>`;
-    output.appendChild(el);
-  });
+function blip(frequency = 220, duration = 0.06, type = 'square', volume = 0.025, delay = 0){
+  if(!soundOn) return;
+  const ctx = getAudioContext();
+  if(!ctx) return;
+  const start = ctx.currentTime + delay;
+  const oscillator = ctx.createOscillator();
+  const gain = ctx.createGain();
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, start);
+  gain.gain.setValueAtTime(0.0001, start);
+  gain.gain.exponentialRampToValueAtTime(volume, start + 0.008);
+  gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+  oscillator.connect(gain).connect(ctx.destination);
+  oscillator.start(start);
+  oscillator.stop(start + duration + 0.02);
 }
 
-btn.addEventListener('click', runParse);
-input.addEventListener('keydown', (e) => { if(e.key === 'Enter') runParse(); });
-
-window.addEventListener('DOMContentLoaded', () => {
-  input.value = 'the cat sat on the pixelated mat';
-  runParse();
-});
-
-// ---------- scroll progress bar ----------
-const progressFill = document.getElementById('progressFill');
-function updateProgress(){
-  const h = document.documentElement;
-  const scrolled = h.scrollTop;
-  const max = h.scrollHeight - h.clientHeight;
-  const pct = max > 0 ? (scrolled / max) * 100 : 0;
-  progressFill.style.width = pct + '%';
+function tapeSound(){
+  blip(95, 0.08, 'square', 0.035, 0);
+  blip(150, 0.05, 'square', 0.02, 0.08);
+  blip(280, 0.11, 'triangle', 0.018, 0.22);
+  blip(330, 0.08, 'triangle', 0.012, 0.34);
 }
-window.addEventListener('scroll', updateProgress, { passive: true });
-updateProgress();
 
-// ---------- reveal on scroll ----------
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      io.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-revealEls.forEach(el => io.observe(el));
+function revealSite(immediate = false){
+  siteShell.setAttribute('aria-hidden', 'false');
+  document.body.classList.remove('gate-open');
 
-// ---------- flip cards ----------
-document.querySelectorAll('.flip-card').forEach(card => {
-  card.addEventListener('click', () => card.classList.toggle('flipped'));
-  card.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      card.classList.toggle('flipped');
-    }
-  });
+  if(immediate){
+    gate.hidden = true;
+    gate.classList.remove('is-leaving');
+    return;
+  }
+
+  gate.classList.add('is-leaving');
+  window.setTimeout(() => {
+    gate.hidden = true;
+  }, 760);
+}
+
+function insertTape(){
+  if(entering) return;
+  entering = true;
+  tapeSound();
+
+  gateStatus.textContent = 'READING TAPE';
+  gateCounter.textContent = '00:01';
+  cassette.classList.add('is-inserting', 'playing');
+  dropSlot.classList.add('inserted');
+  bootFill.classList.add('loading');
+
+  window.setTimeout(() => {
+    gateStatus.textContent = 'PLAY ▶';
+    blip(440, 0.06, 'square', 0.018);
+    blip(660, 0.08, 'square', 0.015, 0.07);
+  }, 760);
+
+  window.setTimeout(() => revealSite(false), 1450);
+}
+
+function resetIntro(){
+  entering = false;
+  gate.hidden = false;
+  gate.classList.remove('is-leaving');
+  document.body.classList.add('gate-open');
+  siteShell.setAttribute('aria-hidden', 'true');
+  gateStatus.textContent = 'NO TAPE';
+  gateCounter.textContent = '00:00';
+  cassette.classList.remove('is-inserting', 'playing');
+  dropSlot.classList.remove('inserted', 'drag-over');
+  bootFill.classList.remove('loading');
+  window.setTimeout(() => cassette.focus({preventScroll:true}), 30);
+}
+
+cassette.addEventListener('click', insertTape);
+cassette.addEventListener('dragstart', event => {
+  event.dataTransfer.effectAllowed = 'move';
+  event.dataTransfer.setData('text/plain', 'research-mixtape');
+  blip(120, 0.04, 'square', 0.015);
 });
 
-// ---------- theme toggle ----------
-const themeToggle = document.getElementById('themeToggle');
-const htmlEl = document.documentElement;
-const savedTheme = localStorage.getItem('site-theme');
-if(savedTheme) htmlEl.setAttribute('data-theme', savedTheme);
-
-themeToggle.addEventListener('click', () => {
-  const current = htmlEl.getAttribute('data-theme');
-  const next = current === 'dark' ? 'paper' : 'dark';
-  htmlEl.setAttribute('data-theme', next);
-  localStorage.setItem('site-theme', next);
+dropSlot.addEventListener('dragover', event => {
+  event.preventDefault();
+  event.dataTransfer.dropEffect = 'move';
+  dropSlot.classList.add('drag-over');
 });
 
-// ---------- sprite speech bubble ----------
-const sprite = document.getElementById('sprite');
-const bubble = document.getElementById('speechBubble');
-const greetings = ["hi! I'm Justin 👋", "welcome to my site!", "try the parser below ↓", "click the cartridges too", "语言学 + AI, always"];
-let greetIndex = 0;
-sprite.addEventListener('click', () => {
-  bubble.textContent = greetings[greetIndex % greetings.length];
-  greetIndex++;
-  bubble.classList.add('show');
-  clearTimeout(sprite._t);
-  sprite._t = setTimeout(() => bubble.classList.remove('show'), 2200);
+dropSlot.addEventListener('dragleave', () => dropSlot.classList.remove('drag-over'));
+dropSlot.addEventListener('drop', event => {
+  event.preventDefault();
+  dropSlot.classList.remove('drag-over');
+  insertTape();
 });
+
+skipIntro.addEventListener('click', () => {
+  entering = true;
+  revealSite(true);
+});
+
+replayIntro.addEventListener('click', resetIntro);
+
+soundToggle.addEventListener('click', () => {
+  soundOn = !soundOn;
+  soundToggle.textContent = `sound: ${soundOn ? 'on' : 'off'}`;
+  soundToggle.setAttribute('aria-pressed', String(soundOn));
+  if(soundOn) blip(330, 0.06, 'square', 0.02);
+});
+
+// Treat the whole page like one 46-minute research mixtape.
+function updateTapeTime(){
+  const root = document.documentElement;
+  const maxScroll = Math.max(1, root.scrollHeight - root.clientHeight);
+  const progress = Math.min(1, Math.max(0, root.scrollTop / maxScroll));
+  const totalSeconds = Math.floor(progress * 46 * 60);
+  const mins = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+  const secs = String(totalSeconds % 60).padStart(2, '0');
+  timecode.textContent = `${mins}:${secs}`;
+}
+
+window.addEventListener('scroll', updateTapeTime, {passive:true});
+window.addEventListener('resize', updateTapeTime);
+updateTapeTime();
+
+const trackSections = [...document.querySelectorAll('[data-track]')];
+const trackObserver = new IntersectionObserver(entries => {
+  const visible = entries
+    .filter(entry => entry.isIntersecting)
+    .sort((a,b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+  if(visible.length){
+    nowPlaying.textContent = visible[0].target.dataset.track;
+  }
+}, {rootMargin:'-24% 0px -58% 0px', threshold:[0,0.1,0.5]});
+trackSections.forEach(section => trackObserver.observe(section));
+
+backToTop.addEventListener('click', () => {
+  document.getElementById('home').scrollIntoView({behavior:'smooth'});
+});
+
+// Tiny tactile feedback on in-page transport links.
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', () => blip(210, 0.035, 'square', 0.008));
+});
+
+// Give keyboard users an immediate escape hatch from the intro.
+gate.addEventListener('keydown', event => {
+  if(event.key === 'Escape'){
+    entering = true;
+    revealSite(true);
+  }
+});
+
+// Respect reduced motion by making the insertion sequence nearly instant.
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  cassette.addEventListener('click', () => revealSite(true), {once:true});
+}
