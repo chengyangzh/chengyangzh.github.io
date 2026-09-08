@@ -20,38 +20,70 @@
     </div>
 
     <div class="intro-stage">
-      <p class="intro-kicker">personal field recording</p>
+      <p class="intro-kicker">personal field recording · side a</p>
       <h1 id="introTitle">A small tape before the index.</h1>
+      <p class="intro-sub">An old field tape of work, questions, and things still in progress.</p>
 
       <div class="player-scene" id="playerScene">
-        <div class="walkman" id="walkman" aria-label="Walkman cassette player">
+        <div class="walkman" id="walkman" aria-label="Vintage cassette field player">
+          <div class="walkman-shell-detail" aria-hidden="true"></div>
           <div class="walkman-meta">
             <span>FIELD PLAYER</span>
-            <span>01</span>
+            <span>FP-01</span>
           </div>
-          <div class="walkman-window">
-            <div class="slot" id="slot">
-              <span class="slot-line"></span>
-              <span class="slot-status" id="slotStatus">EMPTY</span>
+          <div class="walkman-screen">
+            <span class="screen-led" aria-hidden="true"></span>
+            <span id="slotStatus">NO TAPE</span>
+            <span id="introCounter">00:00</span>
+          </div>
+          <div class="walkman-door" id="slot">
+            <div class="door-gloss" aria-hidden="true"></div>
+            <div class="door-window" aria-hidden="true">
+              <span class="door-reel left"></span>
+              <span class="door-strip"></span>
+              <span class="door-reel right"></span>
             </div>
+            <span class="drop-hint">INSERT / DROP TAPE</span>
           </div>
           <div class="controls" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
+            <span>■</span><span>◀◀</span><span>▶</span><span>▶▶</span>
+          </div>
+          <div class="walkman-footer" aria-hidden="true">
+            <span>stereo cassette field recorder</span>
+            <span>auto reverse</span>
           </div>
         </div>
 
-        <button class="cassette" id="cassette" draggable="true" aria-label="Insert cassette and enter site">
-          <span class="cassette-side">A</span>
-          <span class="cassette-name">JUSTIN ZHANG</span>
-          <span class="cassette-rule"></span>
-          <span class="cassette-window">
-            <i></i><b></b><i></i>
+        <button class="cassette" id="cassette" draggable="true" aria-label="Insert field notes cassette and enter site">
+          <span class="cassette-shadow" aria-hidden="true"></span>
+          <span class="cassette-shell">
+            <span class="cassette-edge top" aria-hidden="true"></span>
+            <span class="cassette-edge bottom" aria-hidden="true"></span>
+            <span class="cassette-screws" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+
+            <span class="cassette-label-paper">
+              <span class="label-top">J. ZHANG · UCLA · 2026</span>
+              <span class="label-title">FIELD NOTES</span>
+              <span class="label-sub">language / cognition / artificial intelligence</span>
+            </span>
+
+            <span class="cassette-window">
+              <span class="window-glare" aria-hidden="true"></span>
+              <span class="reel left"><span class="hub"></span></span>
+              <span class="tape-strip" aria-hidden="true"></span>
+              <span class="reel right"><span class="hub"></span></span>
+            </span>
+
+            <span class="cassette-side">SIDE A · 46 MIN</span>
+            <span class="cassette-bottom-cutouts" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="cassette-wear" aria-hidden="true"></span>
+            <span class="cassette-dust" aria-hidden="true"></span>
+            <span class="cassette-scratches" aria-hidden="true"></span>
           </span>
-          <span class="cassette-note">LANGUAGE / COGNITION / AI</span>
         </button>
       </div>
 
-      <p class="intro-instruction" id="introInstruction">click the cassette, or drag it into the player</p>
+      <p class="intro-instruction" id="introInstruction">click the tape, or drag it into the player</p>
     </div>
 
     <div class="intro-bottomline">
