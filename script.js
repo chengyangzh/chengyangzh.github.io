@@ -5,63 +5,95 @@ const cassette = document.getElementById('cassette');
 const walkman = document.getElementById('walkman');
 const slot = document.getElementById('slot');
 const slotStatus = document.getElementById('slotStatus');
+const introCounter = document.getElementById('introCounter');
 const introInstruction = document.getElementById('introInstruction');
 const skipIntro = document.getElementById('skipIntro');
 const replayIntro = document.getElementById('replayIntro');
 
 let entering = false;
+let sequenceTimers = [];
 
-function clickSound(){
+function clearSequenceTimers(){
+  sequenceTimers.forEach(clearTimeout);
+  sequenceTimers = [];
+}
+
+function mechanicalClick(){
   if(!window.AudioContext && !window.webkitAudioContext) return;
   try{
     const Ctx = window.AudioContext || window.webkitAudioContext;
     const ctx = new Ctx();
-    const osc = ctx.createOscillator();
+    const now = ctx.currentTime;
     const gain = ctx.createGain();
-    osc.type = 'square';
-    osc.frequency.value = 105;
-    gain.gain.setValueAtTime(0.018, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.045);
-    osc.connect(gain).connect(ctx.destination);
-    osc.start();
-    osc.stop(ctx.currentTime + 0.05);
-    osc.addEventListener('ended', () => ctx.close());
-  }catch(_){ /* silent fallback */ }
+    const oscA = ctx.createOscillator();
+    const oscB = ctx.createOscillator();
+    oscA.type = 'square';
+    oscB.type = 'triangle';
+    oscA.frequency.setValueAtTime(92, now);
+    oscB.frequency.setValueAtTime(54, now);
+    gain.gain.setValueAtTime(0.022, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.075);
+    oscA.connect(gain);
+    oscB.connect(gain);
+    gain.connect(ctx.destination);
+    oscA.start(now);
+    oscB.start(now + 0.009);
+    oscA.stop(now + 0.06);
+    oscB.stop(now + 0.075);
+    oscB.addEventListener('ended', () => ctx.close());
+  }catch(_){ /* quiet fallback */ }
+}
+
+function finishOpen(){
+  body.classList.remove('intro-open');
+  intro.setAttribute('aria-hidden', 'true');
+  site.setAttribute('aria-hidden', 'false');
+  entering = false;
+  window.scrollTo({top:0, behavior:'auto'});
 }
 
 function openSite({instant = false} = {}){
   if(entering) return;
   entering = true;
-  slotStatus.textContent = 'SIDE A';
+  clearSequenceTimers();
+  slotStatus.textContent = 'READING';
+  introCounter.textContent = '00:01';
   walkman.classList.add('playing');
   cassette.classList.add('inserting');
-  introInstruction.textContent = 'playing';
-  clickSound();
-
-  const finish = () => {
-    body.classList.remove('intro-open');
-    intro.setAttribute('aria-hidden', 'true');
-    site.setAttribute('aria-hidden', 'false');
-    entering = false;
-    window.scrollTo({top:0, behavior:'auto'});
-  };
+  introInstruction.textContent = 'side a';
+  mechanicalClick();
 
   if(instant || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    finish();
-  }else{
-    setTimeout(finish, 620);
+    slotStatus.textContent = 'PLAY';
+    introCounter.textContent = '00:03';
+    finishOpen();
+    return;
   }
+
+  sequenceTimers.push(setTimeout(() => {
+    slotStatus.textContent = 'SIDE A';
+    introCounter.textContent = '00:02';
+  }, 360));
+
+  sequenceTimers.push(setTimeout(() => {
+    slotStatus.textContent = 'PLAY';
+    introCounter.textContent = '00:03';
+  }, 690));
+
+  sequenceTimers.push(setTimeout(finishOpen, 1080));
 }
 
 function resetIntro(){
+  clearSequenceTimers();
   body.classList.add('intro-open');
   intro.setAttribute('aria-hidden', 'false');
   site.setAttribute('aria-hidden', 'true');
   cassette.classList.remove('inserting');
   walkman.classList.remove('playing');
   slot.classList.remove('drag-over');
-  slotStatus.textContent = 'EMPTY';
-  introInstruction.textContent = 'click the cassette, or drag it into the player';
+  slotStatus.textContent = 'NO TAPE';
+  introCounter.textContent = '00:00';
+  introInstruction.textContent = 'click the tape, or drag it into the player';
   entering = false;
   setTimeout(() => cassette.focus(), 50);
 }
@@ -87,7 +119,9 @@ walkman.addEventListener('dragover', (event) => {
   slot.classList.add('drag-over');
 });
 
-walkman.addEventListener('dragleave', () => slot.classList.remove('drag-over'));
+walkman.addEventListener('dragleave', (event) => {
+  if(!walkman.contains(event.relatedTarget)) slot.classList.remove('drag-over');
+});
 
 walkman.addEventListener('drop', (event) => {
   event.preventDefault();
@@ -95,8 +129,6 @@ walkman.addEventListener('drop', (event) => {
   openSite();
 });
 
-// Keep the intro as a deliberate first-visit gesture, but do not trap returning
-// visitors who use the browser's back/forward cache.
 window.addEventListener('pageshow', (event) => {
   if(event.persisted && !body.classList.contains('intro-open')){
     site.setAttribute('aria-hidden', 'false');
