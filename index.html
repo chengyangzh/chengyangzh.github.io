@@ -1,277 +1,314 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="paper">
+<html lang="en" data-theme="mixtape">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zhang Chengyang · Justin</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Justin Zhang — UCLA undergraduate researching language, cognition, and AI.">
+  <meta name="theme-color" content="#2447ff">
+  <title>Justin Zhang · Research Mixtape</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="gate-open">
+  <div class="grain" aria-hidden="true"></div>
 
-<div class="crt-noise" aria-hidden="true"></div>
-<div class="progress-bar" id="progressBar" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
-
-<nav class="nav">
-  <a href="#top" class="nav-mark" aria-label="home">▣</a>
-  <div class="nav-links">
-    <a href="#about">about</a>
-    <a href="#toolkit">toolkit</a>
-    <a href="#lab">lab</a>
-    <a href="#projects">projects</a>
-    <a href="#parse">parse&nbsp;this</a>
-    <a href="#contact">contact</a>
-  </div>
-  <button id="themeToggle" class="theme-toggle" aria-label="switch theme">◐ theme</button>
-</nav>
-
-<header id="top" class="hero">
-  <div class="hero-scene" aria-hidden="true">
-    <div class="stars"></div>
-    <svg class="scene-svg" viewBox="0 0 320 160" preserveAspectRatio="xMidYMax meet">
-      <!-- desk -->
-      <rect x="30" y="120" width="260" height="8" fill="var(--ink)"/>
-      <rect x="40" y="128" width="10" height="24" fill="var(--ink)"/>
-      <rect x="270" y="128" width="10" height="24" fill="var(--ink)"/>
-      <!-- lamp -->
-      <rect x="46" y="70" width="4" height="50" fill="var(--lime)"/>
-      <polygon points="34,70 62,70 54,50 42,50" fill="var(--lime)"/>
-      <!-- monitor -->
-      <rect x="96" y="82" width="88" height="56" fill="var(--panel-dark)" stroke="var(--paper)" stroke-width="4"/>
-      <rect id="monitorGlow" x="104" y="90" width="72" height="40" fill="var(--indigo)"/>
-      <rect x="132" y="138" width="16" height="10" fill="var(--paper)"/>
-      <!-- stack of books -->
-      <rect x="210" y="96" width="18" height="24" fill="var(--coral)"/>
-      <rect x="228" y="84" width="18" height="36" fill="var(--lime)"/>
-      <rect x="246" y="104" width="18" height="16" fill="var(--indigo)"/>
-      <!-- mug -->
-      <rect x="70" y="108" width="14" height="12" fill="var(--coral)"/>
-      <rect x="84" y="111" width="5" height="6" fill="none" stroke="var(--coral)" stroke-width="2"/>
-    </svg>
-    <button class="sprite" id="sprite" aria-label="say hi">☺</button>
-    <div class="speech-bubble" id="speechBubble">hi! I'm Justin 👋</div>
-  </div>
-
-  <div class="hero-text">
-    <p class="eyebrow">welcome, press start</p>
-    <h1 class="glitch-name">
-      <span class="cn">张丞阳</span>
-      <span class="en">Zhang&nbsp;Chengyang</span>
-    </h1>
-    <p class="ipa">/ˈdʒʌs.tɪn/ &nbsp;·&nbsp; goes by <span class="accent">Justin</span></p>
-    <p class="terminal" id="terminal"></p>
-    <p class="hero-sub">Cognitive Science (Computing) + Linguistics &amp; Computer Science @ UCLA<br>
-    Research Assistant, UCLA Language Processing Lab</p>
-    <a href="#about" class="scroll-cue">▾ scroll</a>
-  </div>
-</header>
-
-<main>
-
-<section id="about" class="section reveal">
-  <p class="section-label"><span class="lbl-icon">◆</span> 01 · about</p>
-  <div class="gloss-block">
-    <div class="gloss-line">
-      <span class="gloss-obj">I&nbsp;&nbsp;&nbsp;&nbsp;study&nbsp;&nbsp;&nbsp;how&nbsp;&nbsp;minds&nbsp;&nbsp;parse&nbsp;&nbsp;language,</span>
-      <span class="gloss-gls">1SG&nbsp;study-PRS&nbsp;how&nbsp;mind-PL&nbsp;parse-3PL&nbsp;language-ACC,</span>
+  <section class="tape-gate" id="tapeGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <div class="gate-marquee" aria-hidden="true">
+      <span>PERSONAL RESEARCH MIXTAPE · UCLA · LANGUAGE · COGNITION · AI · SIDE A · </span>
+      <span>PERSONAL RESEARCH MIXTAPE · UCLA · LANGUAGE · COGNITION · AI · SIDE A · </span>
     </div>
-    <div class="gloss-line">
-      <span class="gloss-obj">and&nbsp;&nbsp;build&nbsp;&nbsp;systems&nbsp;&nbsp;that&nbsp;&nbsp;try&nbsp;&nbsp;to&nbsp;&nbsp;do&nbsp;&nbsp;the&nbsp;&nbsp;same.</span>
-      <span class="gloss-gls">and&nbsp;build-PRS&nbsp;system-PL&nbsp;REL&nbsp;try-3PL&nbsp;INF&nbsp;do-INF&nbsp;same-ACC.</span>
-    </div>
-    <p class="gloss-free">&lsquo;I study how minds process language, and build systems that attempt the same.&rsquo;</p>
-  </div>
-  <p class="about-body">
-    I'm a first-year at UCLA double-majoring in Cognitive Science and Linguistics &amp; Computer Science.
-    Most of my time splits between formal linguistic theory, historical phonology, and building the kind of
-    ML systems that make theory testable at scale. Long-term I'm aiming at AI/ML research and engineering —
-    ideally work that still remembers where language comes from.
-  </p>
 
-  <div class="stat-row">
-    <div class="stat"><span class="stat-num">5</span><span class="stat-lbl">languages in current<br>animacy study</span></div>
-    <div class="stat"><span class="stat-num">2</span><span class="stat-lbl">majors, one<br>obsession</span></div>
-    <div class="stat"><span class="stat-num">4</span><span class="stat-lbl">active research<br>threads</span></div>
-  </div>
-</section>
-
-<section id="toolkit" class="section reveal">
-  <p class="section-label"><span class="lbl-icon">▲</span> 02 · toolkit</p>
-  <p class="section-note">edit this list to match your actual stack — placeholder for now</p>
-  <div class="tag-cloud">
-    <span class="tag">Python</span>
-    <span class="tag">PyTorch</span>
-    <span class="tag">scikit-learn</span>
-    <span class="tag">pandas</span>
-    <span class="tag">R</span>
-    <span class="tag">Praat</span>
-    <span class="tag">ELAN</span>
-    <span class="tag">Git</span>
-    <span class="tag">SQL</span>
-    <span class="tag">Formal Semantics</span>
-    <span class="tag">Historical Phonology</span>
-    <span class="tag">Corpus Linguistics</span>
-  </div>
-</section>
-
-<section id="lab" class="section reveal">
-  <p class="section-label"><span class="lbl-icon">●</span> 03 · lab work</p>
-  <div class="cartridge wide flip-card" tabindex="0">
-    <div class="flip-inner">
-      <div class="flip-front">
-        <div class="cartridge-top">
-          <span class="cart-tag">UCLA Language Processing Lab</span>
-          <span class="cart-pi">PI: Jesse Harris</span>
-        </div>
-        <h3>Animacy &amp; Compositional Semantics</h3>
-        <p>Cross-linguistic study of the animacy hierarchy and compositional semantics across five languages.
-        I handle corpus construction, the data pipeline, and contextual embedding models.</p>
-        <span class="flip-hint">click to flip ⤾</span>
+    <div class="gate-stage">
+      <div class="gate-copy">
+        <p class="tiny-label">CHENGYANG / JUSTIN — ARCHIVE 01</p>
+        <h1 id="gateTitle">INSERT TAPE<br>TO CONTINUE</h1>
+        <p class="gate-note">Drag the cassette into the Walkman, or click it. Headphones optional.</p>
       </div>
-      <div class="flip-back">
-        <h4>what's under the hood</h4>
-        <ul>
-          <li>corpus construction across 5 languages</li>
-          <li>data pipeline engineering</li>
-          <li>contextual embedding models</li>
-          <li>cross-linguistic semantic annotation</li>
-        </ul>
-        <span class="flip-hint">click to flip back ⤾</span>
+
+      <div class="deck-wrap">
+        <div class="walkman" id="walkman" aria-label="Pixel Walkman cassette player">
+          <div class="walkman-top">
+            <span>JZ // FIELD PLAYER</span>
+            <span>STEREO</span>
+          </div>
+          <div class="screen">
+            <span id="gateStatus">NO TAPE</span>
+            <span id="gateCounter">00:00</span>
+          </div>
+          <div class="drop-slot" id="dropSlot">
+            <div class="slot-mouth"></div>
+            <span>DROP MIXTAPE HERE</span>
+          </div>
+          <div class="walkman-buttons" aria-hidden="true">
+            <span>■</span><span>◀◀</span><span>▶</span><span>▶▶</span>
+          </div>
+          <div class="brand-line">AUTO REVERSE · DOLBY-ish · 2026</div>
+        </div>
+
+        <button class="cassette" id="cassette" draggable="true" aria-label="Insert research mixtape">
+          <span class="cassette-label-top">JUSTIN ZHANG</span>
+          <span class="cassette-title">RESEARCH<br>MIXTAPE</span>
+          <span class="cassette-side">A</span>
+          <span class="cassette-window">
+            <span class="reel left"></span>
+            <span class="tape-line"></span>
+            <span class="reel right"></span>
+          </span>
+          <span class="cassette-footer">LING / COGSCI / AI · 46 MIN</span>
+        </button>
+      </div>
+
+      <div class="gate-controls">
+        <button class="pixel-button ghost" id="skipIntro">skip intro ↗</button>
+        <button class="pixel-button ghost" id="soundToggle" aria-pressed="true">sound: on</button>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="projects" class="section reveal">
-  <p class="section-label"><span class="lbl-icon">■</span> 04 · projects</p>
-  <p class="section-note">a shelf of things I'm building — click a cartridge to flip it</p>
+    <div class="boot-strip" aria-hidden="true"><span id="bootFill"></span></div>
+  </section>
 
-  <div class="shelf">
-
-    <article class="cartridge flip-card" tabindex="0">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <span class="cart-glyph">◆</span>
-          <h3>Kt/V Adequacy Model</h3>
-          <p class="cart-sub">clinical ML · in progress</p>
-          <p>A hybrid model predicting and optimizing hemodialysis adequacy (Kt/V) from patient demographics
-          and clinical indicators, with a second sub-model for convective/middle-molecule clearance.</p>
-          <span class="flip-hint">click to flip ⤾</span>
+  <div class="site-shell" id="siteShell" aria-hidden="true">
+    <header class="player-bar">
+      <a class="wordmark" href="#home" aria-label="Justin Zhang home">JZ<span>★</span></a>
+      <div class="mini-player" aria-label="Section player">
+        <span class="mini-cassette" aria-hidden="true"><i></i><i></i></span>
+        <div>
+          <span class="mini-kicker">NOW PLAYING</span>
+          <strong id="nowPlaying">01 / INTRO</strong>
         </div>
-        <div class="flip-back">
-          <h4>stack &amp; details</h4>
-          <ul>
-            <li>gradient-boosted trees + deep learning</li>
-            <li>10+ years longitudinal hospital data</li>
-            <li>hospital data partnership</li>
-            <li>first ML portfolio project</li>
-          </ul>
-          <span class="flip-hint">click to flip back ⤾</span>
-        </div>
+        <span class="timecode" id="timecode">00:00</span>
       </div>
-    </article>
+      <nav class="track-nav" aria-label="Primary navigation">
+        <a href="#research">research</a>
+        <a href="#outputs">outputs</a>
+        <a href="#labnotes">notes</a>
+        <a href="#contact">contact</a>
+      </nav>
+      <button class="rewind" id="replayIntro" aria-label="Replay cassette intro">↺ tape</button>
+    </header>
 
-    <article class="cartridge flip-card" tabindex="0">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <span class="cart-glyph">▲</span>
-          <h3>EWCB</h3>
-          <p class="cart-sub">computational linguistics · research</p>
-          <p>Entrenchment-Weighted Compression Bottleneck — explaining grammaticalization unidirectionality
-          through neural iterated learning.</p>
-          <span class="flip-hint">click to flip ⤾</span>
+    <main>
+      <section class="hero" id="home" data-track="01 / INTRO">
+        <div class="hero-copy">
+          <p class="eyebrow">SIDE A · TRACK 01 · UCLA</p>
+          <h1><span>Justin</span><br>Zhang</h1>
+          <p class="hero-cn">张丞阳</p>
+          <p class="hero-lede">I study how intelligent systems learn structure from language, perception, and experience — then build computational models to make those ideas testable.</p>
+          <div class="signal-line">
+            <span class="signal-dot" aria-hidden="true"></span>
+            <span>current signal: language × cognition × AI</span>
+          </div>
+          <div class="hero-actions">
+            <a class="pixel-button solid" href="#research">play research ▶</a>
+            <a class="pixel-button paper" href="https://github.com/chengyangzh" target="_blank" rel="noopener">github ↗</a>
+          </div>
         </div>
-        <div class="flip-back">
-          <h4>stack &amp; details</h4>
-          <ul>
-            <li>neural iterated learning simulation</li>
-            <li>grammaticalization theory</li>
-            <li>targeting ACL / EMNLP main track</li>
-            <li>bridges formal theory + LLM probing</li>
-          </ul>
-          <span class="flip-hint">click to flip back ⤾</span>
-        </div>
-      </div>
-    </article>
 
-    <article class="cartridge flip-card" tabindex="0">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <span class="cart-glyph">●</span>
-          <h3>顏師古音注 Data</h3>
-          <p class="cart-sub">digital humanities · phonology</p>
-          <p>Cleaning phonological annotations — fanqie, 讀如, 讀曰, direct homophone glosses — from Yan Shigu's
-          commentary on the Han Shu, plus the Hongwu Zhengyun.</p>
-          <span class="flip-hint">click to flip ⤾</span>
+        <div class="pixel-window" aria-label="Pixel-art research desk scene">
+          <div class="window-chrome">
+            <span>FIELD_NOTE_09_08_26.PNG</span>
+            <span>×</span>
+          </div>
+          <svg class="pixel-scene" viewBox="0 0 320 260" role="img" aria-label="Pixel art desk, books, monitor, waveform and tomato scholar mascot" shape-rendering="crispEdges">
+            <rect width="320" height="260" fill="#14213d"/>
+            <rect x="0" y="0" width="320" height="22" fill="#0c1326"/>
+            <rect x="18" y="42" width="284" height="132" fill="#1f3372"/>
+            <rect x="28" y="54" width="88" height="64" fill="#f4efdf"/>
+            <rect x="34" y="60" width="76" height="52" fill="#111827"/>
+            <rect x="40" y="86" width="8" height="8" fill="#d8ff5f"/>
+            <rect x="50" y="78" width="8" height="16" fill="#ff5d57"/>
+            <rect x="60" y="72" width="8" height="22" fill="#f4efdf"/>
+            <rect x="70" y="82" width="8" height="12" fill="#d8ff5f"/>
+            <rect x="80" y="68" width="8" height="26" fill="#ffcf3f"/>
+            <rect x="90" y="80" width="8" height="14" fill="#f4efdf"/>
+            <rect x="130" y="58" width="150" height="74" fill="#0b1020"/>
+            <rect x="138" y="66" width="134" height="58" fill="#2447ff"/>
+            <polyline points="142,97 152,97 158,80 166,112 174,91 182,98 190,98 198,73 205,113 212,91 220,98 230,98 236,82 244,108 252,97 268,97" fill="none" stroke="#d8ff5f" stroke-width="4"/>
+            <rect x="194" y="132" width="24" height="10" fill="#f4efdf"/>
+            <rect x="184" y="142" width="44" height="7" fill="#f4efdf"/>
+            <rect x="22" y="160" width="276" height="12" fill="#ffcf3f"/>
+            <rect x="20" y="172" width="280" height="14" fill="#5a3d2b"/>
+            <rect x="34" y="186" width="18" height="58" fill="#5a3d2b"/>
+            <rect x="268" y="186" width="18" height="58" fill="#5a3d2b"/>
+            <rect x="236" y="143" width="18" height="17" fill="#ff5d57"/>
+            <rect x="254" y="147" width="8" height="9" fill="none" stroke="#ff5d57" stroke-width="4"/>
+            <rect x="58" y="132" width="30" height="6" fill="#d8ff5f"/>
+            <rect x="52" y="138" width="42" height="6" fill="#f4efdf"/>
+            <rect x="60" y="144" width="34" height="6" fill="#ff5d57"/>
+            <rect x="126" y="158" width="54" height="6" fill="#f4efdf" opacity=".8"/>
+            <rect x="128" y="204" width="12" height="26" fill="#f4efdf"/>
+            <rect x="160" y="204" width="12" height="26" fill="#f4efdf"/>
+            <rect x="136" y="180" width="28" height="32" fill="#d8ff5f"/>
+            <rect x="132" y="176" width="36" height="30" fill="#ff5d57"/>
+            <rect x="138" y="182" width="6" height="6" fill="#111827"/>
+            <rect x="156" y="182" width="6" height="6" fill="#111827"/>
+            <rect x="146" y="194" width="8" height="4" fill="#111827"/>
+            <rect x="140" y="170" width="6" height="8" fill="#3a8b45"/>
+            <rect x="154" y="168" width="6" height="10" fill="#3a8b45"/>
+            <rect x="148" y="166" width="6" height="12" fill="#3a8b45"/>
+            <rect x="172" y="188" width="42" height="5" fill="#f4efdf" transform="rotate(-18 172 188)"/>
+            <rect x="206" y="176" width="8" height="8" fill="#ffcf3f"/>
+          </svg>
+          <div class="window-caption">
+            <span>tomato scholar / build 02</span>
+            <span>REC ●</span>
+          </div>
         </div>
-        <div class="flip-back">
-          <h4>stack &amp; details</h4>
-          <ul>
-            <li>fanqie / 讀如 / 讀曰 annotation extraction</li>
-            <li>feeds a Middle Chinese reconstruction model</li>
-            <li>mixed integer optimization approach</li>
-            <li>with 筱溪, dir. Weiwei Sun</li>
-          </ul>
-          <span class="flip-hint">click to flip back ⤾</span>
-        </div>
-      </div>
-    </article>
+      </section>
 
-    <article class="cartridge flip-card" tabindex="0">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <span class="cart-glyph">■</span>
-          <h3>Cantonese &amp; Southern Min</h3>
-          <p class="cart-sub">historical linguistics · collaboration</p>
-          <p>Working with Prof. Weiwei Sun (Cambridge) on Cantonese syntax and Southern Min phonology.</p>
-          <span class="flip-hint">click to flip ⤾</span>
+      <section class="track-section cobalt" id="about" data-track="02 / PROFILE">
+        <div class="track-number">02</div>
+        <div class="track-content two-col">
+          <div>
+            <p class="section-kicker">PROFILE / CURRENTLY</p>
+            <h2>Research, but with more than one lens.</h2>
+          </div>
+          <div class="profile-copy">
+            <p>I’m a UCLA undergraduate in Cognitive Science and Linguistics &amp; Computer Science. My work moves between computational linguistics, historical phonology, perception, and AI — especially questions where the representation itself is the hard part.</p>
+            <p>I like projects that start from a weird human phenomenon, force a precise computational claim, and then survive contact with data.</p>
+            <div class="ticker" aria-label="Research interests">
+              <span>emergence</span><span>representation learning</span><span>phonology</span><span>agents</span><span>cognitive modeling</span><span>multilingual NLP</span>
+            </div>
+          </div>
         </div>
-        <div class="flip-back">
-          <h4>stack &amp; details</h4>
-          <ul>
-            <li>Cantonese syntax analysis</li>
-            <li>Southern Min phonology</li>
-            <li>sources: Baxter &amp; Sagart, 王力, 潘悟云, 鄭張尚芳</li>
-            <li>collab: Prof. Weiwei Sun, Cambridge</li>
-          </ul>
-          <span class="flip-hint">click to flip back ⤾</span>
-        </div>
-      </div>
-    </article>
+      </section>
 
+      <section class="track-section cream" id="research" data-track="03 / RESEARCH">
+        <div class="track-number">03</div>
+        <div class="track-content">
+          <p class="section-kicker">SELECTED RESEARCH / FOUR TAPES</p>
+          <h2>Research shelf</h2>
+          <div class="tape-grid">
+            <article class="research-tape red">
+              <div class="tape-spine">A1</div>
+              <div class="tape-body">
+                <p class="status">COMPUTATIONAL LINGUISTICS · ACTIVE</p>
+                <h3>Philologist-inspired phonological reconstruction</h3>
+                <p>Modeling historical Chinese sound systems with explicit historical time planes, category structure, and evidence from Yan Shigu’s annotations rather than treating reconstruction as a flat character-to-sound problem.</p>
+                <div class="chips"><span>historical phonology</span><span>representation</span><span>Cambridge</span></div>
+              </div>
+            </article>
+
+            <article class="research-tape yellow">
+              <div class="tape-spine">A2</div>
+              <div class="tape-body">
+                <p class="status">PERCEPTION · VR</p>
+                <h3>Stereokinetic depth as a human–model test</h3>
+                <p>Building a Unity/OpenXR experiment for perceived 3D contours in stereokinetic motion, with real-time hand tracing and parallel evaluation of vision models on the same stimulus family.</p>
+                <div class="chips"><span>Unity</span><span>OpenXR</span><span>psychophysics</span></div>
+                <a href="https://github.com/xvr2e7/trefoil-depth" target="_blank" rel="noopener">view project ↗</a>
+              </div>
+            </article>
+
+            <article class="research-tape lime">
+              <div class="tape-spine">A3</div>
+              <div class="tape-body">
+                <p class="status">LANGUAGE MODELS · PROCESSING</p>
+                <h3>When plausibility meets filler–gap expectations</h3>
+                <p>Comparing human processing signatures with language-model surprisal on long-distance dependencies, asking where semantic plausibility changes the expectation for a syntactic gap.</p>
+                <div class="chips"><span>surprisal</span><span>LLMs</span><span>syntax × semantics</span></div>
+              </div>
+            </article>
+
+            <article class="research-tape blue">
+              <div class="tape-spine">A4</div>
+              <div class="tape-body">
+                <p class="status">VISION · PRIVACY</p>
+                <h3>Face privacy: humans vs. recognition systems</h3>
+                <p>Testing how privacy-preserving distortions change recognition for people and face-recognition models, and extending the comparison toward diffusion-based privacy methods.</p>
+                <div class="chips"><span>face recognition</span><span>privacy</span><span>human–AI gap</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="track-section black" id="outputs" data-track="04 / OUTPUTS">
+        <div class="track-number">04</div>
+        <div class="track-content">
+          <p class="section-kicker">OUTPUTS / THINGS THAT LEFT THE LAB</p>
+          <h2>Selected signals</h2>
+          <div class="output-list">
+            <article>
+              <span class="output-year">2026</span>
+              <div>
+                <h3>Towards Human-Level Phonological Reconstruction: A Philologist-Inspired Computational Approach</h3>
+                <p>Collaborative manuscript on computational historical phonology · under review at <em>Computational Linguistics</em>.</p>
+              </div>
+              <span class="output-type">MANUSCRIPT</span>
+            </article>
+            <article>
+              <span class="output-year">2026</span>
+              <div>
+                <h3>Diachronic semantic change in a 23M-character Chinese corpus</h3>
+                <p>Period-specific embeddings, Procrustes alignment, and semantic axes for tracking pejoration, urban identity, and cultural change.</p>
+              </div>
+              <span class="output-type">RESEARCH</span>
+            </article>
+            <article>
+              <span class="output-year">2025</span>
+              <div>
+                <h3>Chinese sexual humor, indirectness, and relational ease</h3>
+                <p>Survey and corpus work presented during UCLA Undergraduate Research Week.</p>
+              </div>
+              <span class="output-type">PRESENTATION</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="track-section signal" id="labnotes" data-track="05 / LAB NOTES">
+        <div class="track-number">05</div>
+        <div class="track-content">
+          <p class="section-kicker">SIDE B / OPEN QUESTIONS</p>
+          <h2>Things I keep thinking about</h2>
+          <div class="note-grid">
+            <article>
+              <span>01</span>
+              <h3>Can a model discover a useful representation before we name it?</h3>
+              <p>Especially when humans rely on partial cues, category structure, or tacit conventions instead of a clean label space.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>What should count as emergence?</h3>
+              <p>Not “the loss went down,” but a behavior or internal structure that appears only when a system crosses a meaningful constraint.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Where do human shortcuts beat scale?</h3>
+              <p>Historical reconstruction, geolocation, language learning, and other problems where the right prior can be worth more than another million examples.</p>
+            </article>
+          </div>
+          <div class="toolbox">
+            <span class="toolbox-label">TOOLBOX</span>
+            <span>Python</span><span>PyTorch</span><span>C++</span><span>Unity / C#</span><span>OpenXR</span><span>Praat</span><span>Transformers</span><span>corpus methods</span><span>experimental design</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="track-section contact-section" id="contact" data-track="06 / CONTACT">
+        <div class="track-number">06</div>
+        <div class="track-content contact-grid">
+          <div>
+            <p class="section-kicker">END OF SIDE A</p>
+            <h2>Want to make something strange and rigorous?</h2>
+          </div>
+          <div class="contact-card">
+            <p>Research collaborations, weird language questions, model evaluation ideas, or just a good paper recommendation.</p>
+            <a class="contact-link" href="mailto:justinzh0421@g.ucla.edu">justinzh0421@g.ucla.edu ↗</a>
+            <a class="contact-link" href="https://github.com/chengyangzh" target="_blank" rel="noopener">github.com/chengyangzh ↗</a>
+          </div>
+        </div>
+        <footer>
+          <span>JZ-001 · RECORDED IN LOS ANGELES / BEIJING · 2026</span>
+          <button id="backToTop">rewind to track 01 ↺</button>
+        </footer>
+      </section>
+    </main>
   </div>
-</section>
 
-<section id="parse" class="section reveal">
-  <p class="section-label"><span class="lbl-icon">◆</span> 05 · parse this</p>
-  <p class="section-note">type a sentence — I'll take a playful, not-linguistically-rigorous stab at tagging it. no promises.</p>
-
-  <div class="parser">
-    <div class="parser-input-row">
-      <input id="parseInput" type="text" maxlength="60" placeholder="the cat sat on the mat" autocomplete="off">
-      <button id="parseBtn">parse ▸</button>
-    </div>
-    <div id="parseOutput" class="parse-output" aria-live="polite"></div>
-  </div>
-</section>
-
-<section id="contact" class="section contact reveal">
-  <p class="section-label"><span class="lbl-icon">▲</span> 06 · contact</p>
-  <div class="mailbox">
-    <div class="mailbox-icon">✉</div>
-    <p>reach out —</p>
-    <div class="contact-links">
-      <a href="mailto:you@example.com">email</a>
-      <a href="https://github.com/chengyangzh" target="_blank" rel="noopener">github</a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">linkedin</a>
-    </div>
-  </div>
-  <p class="footer-note">built by hand, hosted on GitHub Pages · press start 2p never dies</p>
-</section>
-
-</main>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
