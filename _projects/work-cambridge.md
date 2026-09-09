@@ -2,7 +2,6 @@
 layout: page
 title: Cambridge · Historical Phonology
 description: Philologist-inspired computational reconstruction of Middle Chinese and Old Mandarin.
-img: assets/img/cover-phonology.svg
 importance: 1
 category: work
 ---
