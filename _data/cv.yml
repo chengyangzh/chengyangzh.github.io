@@ -1,0 +1,142 @@
+cv:
+  name: Justin Chengyang Zhang
+  label: Undergraduate Researcher
+  email: justinzh0421@g.ucla.edu
+  location: Los Angeles, CA
+  image: ""
+  summary: UCLA undergraduate working across computational linguistics, cognitive science, and artificial intelligence.
+
+  social_networks:
+    - network: GitHub
+      username: chengyangzh
+
+  sections:
+    Education:
+      - institution: University of California, Los Angeles
+        location: Los Angeles, CA
+        area: Cognitive Science; Linguistics & Computer Science
+        studyType: Undergraduate
+        start_date: 2025
+        end_date: Present
+        score: "GPA: 3.9"
+        highlights:
+          - Cognitive Science Computing Specialization
+          - Chancellor's Honor List
+
+    Experience:
+      - company: University of Cambridge
+        position: Student Researcher
+        location: Remote
+        start_date: 2026-01
+        end_date: Present
+        summary: Computational historical phonology and philologist-inspired reconstruction with Prof. Weiwei Sun.
+        highlights:
+          - Model historical sound systems using category structure, phonological features, historical evidence, and multiple time planes.
+          - Work on Middle Chinese–Old Mandarin reconstruction and related Cantonese/Hokkien questions.
+
+      - company: UCLA Perceptual Processing & Computational Lab
+        position: Project Lead
+        location: Los Angeles, CA
+        start_date: 2025-10
+        end_date: Present
+        summary: Computational and experimental research on perception, VR, and human–AI evaluation.
+        highlights:
+          - Built Unity/OpenXR experiments for stereokinetic depth perception with real-time hand tracing and behavioral logging.
+          - Evaluated vision models and privacy-preserving face transformations against human recognition behavior.
+
+      - company: UCLA Language Processing Lab
+        position: Research Assistant
+        location: Los Angeles, CA
+        start_date: 2026-03
+        end_date: Present
+        summary: Research on language-model predictions and human sentence processing with Prof. Jesse Harris.
+        highlights:
+          - Calculate token-level surprisal from language models for filler–gap dependency experiments.
+          - Compare plausibility effects in human processing with large-language-model expectations.
+
+      - company: UCLA Semel Institute
+        position: Research Assistant
+        location: Los Angeles, CA
+        start_date: 2025-09
+        end_date: Present
+        summary: Acoustic analysis of speech rhythm, pitch, formants, and temporal entrainment.
+
+      - company: UCLA
+        position: Student Researcher — Face Privacy
+        location: Los Angeles, CA
+        start_date: 2026-06
+        end_date: Present
+        summary: Human and machine face recognition under privacy-preserving image transformations.
+        highlights:
+          - Analyze large-scale human recognition judgments alongside AdaFace, ArcFace, FaceNet512, SFace, and VGG-Face.
+          - Extend evaluation toward diffusion-based privacy methods.
+
+      - company: UCLA Undergraduate Research Week
+        position: Student Researcher
+        location: Los Angeles, CA
+        start_date: 2026-01
+        end_date: 2026-04
+        summary: Diachronic Chinese semantic change with Prof. Sam Cumming.
+        highlights:
+          - Built a 23M-character historical corpus pipeline with period-specific Word2Vec embeddings and Procrustes alignment.
+          - Used semantic axes to trace changes in pejoration, urban identity, and cultural meaning.
+
+      - company: Peking University — Mao Lab
+        position: Research Assistant / Intern
+        location: Beijing, China
+        start_date: 2024
+        end_date: 2025
+        summary: Research on time, space, quantity, embodied cognition, VR experiments, and cross-linguistic gesture.
+
+      - company: UCLA PURC
+        position: Student Researcher
+        location: Los Angeles, CA
+        start_date: 2024-06
+        end_date: 2025-08
+        summary: Chinese sexual humor, indirectness, offensiveness, and relational ease with Prof. Vanessa Fong.
+
+    Projects:
+      - name: Echo
+        summary: A structure-first analogy agent runtime with tool use, persistent sessions, explicit analogy mappings, and controlled evaluation.
+        start_date: 2026-09
+        end_date: 2026-09
+        highlights:
+          - Built a CLI agent loop with structured retrieval, SQLite transcripts, and external case lookup.
+          - Designed deterministic near/far/surface-trap evaluation cases to separate structural relevance from surface similarity.
+
+      - name: Dialypredict
+        summary: Machine learning for hemodialysis adequacy prediction and prescription optimization.
+        start_date: 2026
+        end_date: Present
+
+      - name: Diachronic Chinese Semantic Change
+        summary: Computational analysis of historical semantic change using aligned distributional representations.
+        start_date: 2026
+        end_date: 2026
+
+    Awards:
+      - title: Chancellor's Honor List
+        awarder: University of California, Los Angeles
+        date: 2026
+
+    Skills:
+      - name: Programming
+        level: ""
+        icon: fa-solid fa-code
+        keywords: "Python, C++, C#, Git"
+
+      - name: Machine Learning / NLP
+        level: ""
+        icon: fa-solid fa-brain
+        keywords: "PyTorch, Transformers, Hugging Face, Word2Vec, multilingual language models"
+
+      - name: Experimental / Research Tools
+        level: ""
+        icon: fa-solid fa-flask
+        keywords: "Unity, OpenXR, SteamVR, Praat, corpus methods, experimental design"
+
+    Languages:
+      - name: Mandarin Chinese
+        summary: Native
+      - name: English
+        summary: Fluent
