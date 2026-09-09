@@ -1,0 +1,36 @@
+name: Deploy native al-folio
+
+on:
+  push:
+    branches:
+      - rebuild/al-folio-native
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.5'
+          bundler-cache: true
+
+      - name: Build al-folio
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build
+
+      - name: Deploy built site to main
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: main
+          folder: _site
+          clean: true
+          single-commit: true
