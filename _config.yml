@@ -1,0 +1,96 @@
+title: blank
+first_name: Justin
+middle_name: Chengyang
+last_name: Zhang
+contact_note: >
+  The best way to reach me is by email.
+description: >
+  UCLA undergraduate researcher working across computational linguistics, cognitive science, and AI.
+footer_text: >
+  Built with the al-folio academic theme.
+keywords: computational linguistics, cognitive science, artificial intelligence, UCLA
+lang: en
+icon: 🍅
+
+url: https://chengyangzh.github.io
+baseurl: ""
+last_updated: false
+back_to_top: true
+
+al_folio:
+  api_version: 1
+  style_engine: tailwind
+  tailwind:
+    version: 4.1.18
+    preflight: false
+  features:
+    cv:
+      enabled: false
+  compat:
+    bootstrap:
+      enabled: false
+
+navbar_fixed: true
+footer_fixed: true
+search_enabled: false
+socials_in_search: false
+posts_in_search: false
+bib_search: false
+max_width: 930px
+
+blog_name: notes
+blog_description: notes
+
+collections:
+  news:
+    defaults:
+      layout: post
+    output: true
+  projects:
+    output: true
+
+include: ["_pages"]
+exclude:
+  - README.md
+  - Gemfile.lock
+  - vendor
+  - node_modules
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+
+theme: al_folio_core
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-socials
+  - jemoji
+  - al_folio_core
+  - al_icons
+  - al_img_tools
+  - al_search
+  - al_email_protect
+
+defaults:
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false
+
+enable_darkmode: true
+enable_navbar_social: false
+enable_project_categories: true
+enable_medium_zoom: true
+enable_progressbar: false
+enable_tooltips: false
+
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+
+imagemagick:
+  enabled: false
