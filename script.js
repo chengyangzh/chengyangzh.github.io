@@ -1,6 +1,8 @@
 (() => {
   const counter = document.getElementById('lcdCounter');
+  const status = document.getElementById('lcdStatus');
   let seconds = 17;
+
   if (counter) {
     setInterval(() => {
       seconds = (seconds + 1) % (46 * 60);
@@ -11,13 +13,18 @@
   }
 
   document.querySelectorAll('.tape-button').forEach((button) => {
+    const label = button.dataset.track || 'PLAY';
+    button.addEventListener('mouseenter', () => { if (status) status.textContent = label; });
+    button.addEventListener('mouseleave', () => { if (status) status.textContent = 'PLAY'; });
+    button.addEventListener('focus', () => { if (status) status.textContent = label; });
+    button.addEventListener('blur', () => { if (status) status.textContent = 'PLAY'; });
     button.addEventListener('click', (event) => {
       event.preventDefault();
       const href = button.getAttribute('href');
-      const label = button.dataset.track || 'PLAY';
-      document.getElementById('lcdStatus')?.replaceChildren(document.createTextNode(label));
+      if (status) status.textContent = label;
       button.classList.add('is-pressed');
-      setTimeout(() => { window.location.href = href; }, 180);
+      document.getElementById('walkman')?.classList.add('changing-track');
+      setTimeout(() => { window.location.href = href; }, 190);
     });
   });
 })();
