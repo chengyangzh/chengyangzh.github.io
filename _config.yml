@@ -10,7 +10,6 @@ footer_text: >
   Powered by Jekyll with the al-folio theme.
 keywords: computational linguistics, cognitive science, artificial intelligence, UCLA
 lang: en
-icon: 🍅
 
 url: https://chengyangzh.github.io
 baseurl: ""
@@ -150,8 +149,6 @@ scholar:
   locale: en
   query: "@*"
 
-# Required by al-folio's jekyll-3rd-party-libraries plugin. We keep the
-# upstream CDN behavior and only list libraries used by the default theme.
 third_party_libraries:
   download: false
   fontawesome:
