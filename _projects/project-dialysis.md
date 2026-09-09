@@ -1,9 +1,8 @@
 ---
 layout: page
-title: Dialysis Prediction System
+title: Dialypredict
 description: Clinical decision support for hemodialysis adequacy and prescription optimization.
-img: assets/img/cover-clinical.svg
-importance: 4
+importance: 2
 category: projects
 ---
 
