@@ -7,7 +7,7 @@ contact_note: >
 description: >
   UCLA undergraduate researcher working across computational linguistics, cognitive science, and AI.
 footer_text: >
-  Built with the al-folio academic theme.
+  Powered by Jekyll with the al-folio theme.
 keywords: computational linguistics, cognitive science, artificial intelligence, UCLA
 lang: en
 icon: 🍅
@@ -23,12 +23,22 @@ al_folio:
   tailwind:
     version: 4.1.18
     preflight: false
+    css_entry: assets/tailwind/app.css
+  distill:
+    engine: distillpub-template
+    source: al-org-dev/distill-template#al-folio
+    allow_remote_loader: false
   features:
     cv:
+      enabled: true
+    distill:
       enabled: false
   compat:
     bootstrap:
       enabled: false
+      support_window: v1.0-v1.2
+      deprecates_in: v1.3
+      removed_in: v2.0
 
 navbar_fixed: true
 footer_fixed: true
@@ -40,6 +50,12 @@ max_width: 930px
 
 blog_name: notes
 blog_description: notes
+pagination:
+  enabled: false
+related_blog_posts:
+  enabled: false
+newsletter:
+  enabled: false
 
 collections:
   news:
@@ -64,15 +80,45 @@ kramdown:
 theme: al_folio_core
 
 plugins:
+  - jekyll-3rd-party-libraries
+  - jekyll-archives-v2
+  - jekyll-cache-bust
+  - jekyll-email-protect
   - jekyll-feed
+  - jekyll-get-json
+  - jekyll-imagemagick
+  - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate-v2
+  - jekyll-regex-replace
+  - jekyll-scholar
   - jekyll-sitemap
   - jekyll-socials
+  - jekyll-tabs
+  - jekyll-terser
+  - jekyll-toc
+  - jekyll-twitter-plugin
   - jemoji
   - al_folio_core
   - al_icons
+  - al_folio_cv
+  - al_folio_distill
+  - al_folio_upgrade
+  - al_folio_bootstrap_compat
+  - al_cookie
+  - al_analytics
+  - al_citations
+  - al_ext_posts
   - al_img_tools
   - al_search
+  - al_charts
+  - al_math
+  - al_comments
+  - al_newsletter
   - al_email_protect
+  - al_marimo
+  - al_rtl
 
 defaults:
   - scope:
@@ -94,3 +140,12 @@ external_links:
 
 imagemagick:
   enabled: false
+
+scholar:
+  last_name: [Zhang]
+  first_name: [Justin, Chengyang]
+  source: /_bibliography/
+  bibliography: papers.bib
+  style: apa
+  locale: en
+  query: "@*"
