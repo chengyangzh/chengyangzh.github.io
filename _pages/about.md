@@ -2,8 +2,6 @@
 layout: about
 title: about
 permalink: /
-nav: true
-nav_order: 1
 subtitle: UCLA undergraduate · computational linguistics · cognitive science · AI
 
 profile:
