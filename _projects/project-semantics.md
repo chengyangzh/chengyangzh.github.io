@@ -1,9 +1,8 @@
 ---
 layout: page
-title: Diachronic Semantic Change
+title: Diachronic Chinese Semantic Change
 description: A 23M-character Chinese corpus with aligned embeddings and semantic axes.
-img: assets/img/cover-semantics.svg
-importance: 5
+importance: 3
 category: projects
 ---
 
