@@ -1,17 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Justin Zhang</title>
-  <meta name="robots" content="noindex">
-  <style>
-    html,body{margin:0;height:100%;background:#fff;color:#111;font-family:Arial,sans-serif}
-    main{min-height:100%;display:grid;place-items:center}
-    p{font-size:14px;color:#777}
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Justin Chengyang Zhang — researcher and builder exploring language, cognition, and intelligent systems." />
+  <title>Justin Chengyang Zhang</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <main><p>new site in progress</p></main>
+<body class="home">
+  <main class="landing-shell">
+    <header class="identity-block" aria-labelledby="site-title">
+      <p class="eyebrow">JZ / PERSONAL ARCHIVE</p>
+      <h1 id="site-title">Justin Chengyang Zhang</h1>
+      <p class="han-name">张丞阳</p>
+      <p class="identity-line">Researcher and builder exploring how language, cognition, and intelligent systems learn structure.</p>
+      <div class="signal-line"><span class="signal-dot"></span><span>PLAYING · SIDE A · LOS ANGELES / BEIJING</span></div>
+    </header>
+
+    <section class="deck-stage" aria-label="Interactive cassette navigation">
+      <div class="walkman" id="walkman">
+        <div class="wear-layer" aria-hidden="true"></div>
+        <div class="top-rail">
+          <span>STEREO CASSETTE PLAYER</span>
+          <span class="model-no">JZ–01</span>
+        </div>
+
+        <div class="lcd-row">
+          <div class="lcd">
+            <span class="lcd-label">TAPE</span>
+            <span class="lcd-status" id="lcdStatus">PLAY</span>
+            <span class="lcd-counter" id="lcdCounter">00:17</span>
+          </div>
+          <span class="led" aria-hidden="true"></span>
+        </div>
+
+        <div class="cassette-door">
+          <div class="cassette">
+            <div class="cassette-label">
+              <div class="label-head"><span>J. ZHANG</span><span>2026</span></div>
+              <div class="label-title">FIELD NOTES</div>
+              <div class="label-sub">LANGUAGE · COGNITION · AI</div>
+            </div>
+            <div class="tape-window">
+              <div class="reel reel-left"><span></span></div>
+              <div class="tape-band"></div>
+              <div class="reel reel-right"><span></span></div>
+            </div>
+            <div class="cassette-marks"><span>TYPE I</span><span>46 MIN</span></div>
+          </div>
+        </div>
+
+        <nav class="mechanical-controls" aria-label="Primary navigation">
+          <a class="tape-button" href="about.html" data-track="ABOUT"><span class="track-no">01</span><span class="button-label">ABOUT</span></a>
+          <a class="tape-button" href="work.html" data-track="WORK"><span class="track-no">02</span><span class="button-label">WORK</span></a>
+          <a class="tape-button" href="projects.html" data-track="PROJECTS"><span class="track-no">03</span><span class="button-label">PROJECTS</span></a>
+          <a class="tape-button" href="resume.html" data-track="RESUME"><span class="track-no">04</span><span class="button-label">RESUME</span></a>
+        </nav>
+
+        <div class="deck-footer"><span>AUTO REVERSE</span><span>Dolby B NR</span><span>DC 3V</span></div>
+      </div>
+
+      <figure class="avatar-print">
+        <span class="binder-clip" aria-hidden="true"><i></i><i></i></span>
+        <div class="avatar-image-wrap"><img src="assets/tomato-avatar.webp" alt="Tomato scholar avatar" /></div>
+        <figcaption>field companion</figcaption>
+      </figure>
+    </section>
+
+    <footer class="landing-footer">
+      <span>© 2026 JUSTIN CHENGYANG ZHANG</span>
+      <span>MOVE THE CURSOR · PRESS A TAPE KEY</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
