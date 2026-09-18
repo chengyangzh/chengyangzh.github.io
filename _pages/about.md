@@ -6,7 +6,7 @@ subtitle: UCLA undergraduate · computational linguistics · cognitive science �
 
 profile:
   align: right
-  image: portrait.jpg
+  image: portrait-upload.svg
   image_circular: false
   more_info:
 
