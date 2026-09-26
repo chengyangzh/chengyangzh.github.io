@@ -1,0 +1,66 @@
+cv:
+  name: Justin Chengyang Zhang
+  label: Undergraduate Researcher
+  email: justinzh0421@g.ucla.edu
+  location: Los Angeles, California
+  image: ""
+  summary: UCLA undergraduate studying Cognitive Science with a Computing specialization and Linguistics & Computer Science.
+
+  social_networks:
+    - network: GitHub
+      username: chengyangzh
+
+  sections:
+    Education:
+      - institution: University of California, Los Angeles
+        location: Los Angeles, California
+        area: Cognitive Science; Linguistics & Computer Science
+        studyType: Undergraduate
+        start_date: 2025
+        end_date: present
+
+    Experience:
+      - company: University of Cambridge
+        position: Student Researcher, Prof. Weiwei Sun
+        location: Remote
+        start_date: 2026-01
+        end_date: present
+        highlights:
+          - Computational historical phonology and category-based reconstruction.
+          - Distinctive-feature modeling and evaluation against philological and Sino-Xenic evidence.
+
+      - company: UCLA Language Processing Lab
+        position: Research Assistant
+        location: Los Angeles, California
+        start_date: 2026-03
+        end_date: present
+        highlights:
+          - Language-model surprisal, filler-gap dependencies, multilingual annotation, animacy, and syntax-semantics interactions.
+
+      - company: UCLA Perception / Computational Research
+        position: Researcher
+        location: Los Angeles, California
+        start_date: 2025-10
+        end_date: present
+        highlights:
+          - VR psychophysics and stereokinetic depth experiments using Unity, C#, OpenXR, and SteamVR.
+          - Built experiment instrumentation and analysis tools for human-AI comparison.
+
+      - company: UCLA Face Privacy Project
+        position: Research Assistant
+        location: Los Angeles, California
+        start_date: 2026-06
+        end_date: present
+        highlights:
+          - Human recognition experiments and evaluation of privacy distortions across recognition models.
+          - Extending evaluation toward diffusion-based privacy methods and cross-model transfer.
+
+    Projects:
+      - name: Echo
+        summary: Structure-first analogical retrieval and agent planning.
+
+      - name: Historical Phonology Reconstruction
+        summary: Constrained optimization across multiple historical time planes.
+
+      - name: Stereokinetic Depth in VR
+        summary: VR stimulus generation, calibration, logging, and analysis tooling.
