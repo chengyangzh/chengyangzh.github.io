@@ -1,1 +1,102 @@
-document.addEventListener("DOMContentLoaded",()=>{const t=Array.from(document.querySelectorAll("[data-nav-toggle]")),e=t=>{const e=t.getAttribute("data-nav-toggle")||t.getAttribute("aria-controls");if(!e)return;const o=document.getElementById(e);o&&(o.classList.remove("show"),t.classList.add("collapsed"),t.setAttribute("aria-expanded","false"))};t.forEach(t=>{const e=t.getAttribute("data-nav-toggle")||t.getAttribute("aria-controls");if(!e)return;const o=document.getElementById(e);o&&t.addEventListener("click",e=>{e.preventDefault();const s=o.classList.contains("show");o.classList.toggle("show",!s),t.classList.toggle("collapsed",s),t.setAttribute("aria-expanded",String(!s))})});const o=Array.from(document.querySelectorAll("[data-nav-dropdown-toggle]")),s=t=>{o.forEach(e=>{if(t&&e===t)return;const o=e.closest(".dropdown"),s=o?.querySelector(".dropdown-menu");s&&(o.classList.remove("show"),s.classList.remove("show"),e.setAttribute("aria-expanded","false"))})};o.forEach(t=>{t.addEventListener("click",e=>{e.preventDefault(),e.stopPropagation();const o=t.closest(".dropdown"),n=o?.querySelector(".dropdown-menu");if(!o||!n)return;const a=n.classList.contains("show");s(t),o.classList.toggle("show",!a),n.classList.toggle("show",!a),t.setAttribute("aria-expanded",String(!a))})}),document.addEventListener("click",o=>{t.forEach(t=>{const s=t.getAttribute("data-nav-toggle")||t.getAttribute("aria-controls"),n=s?document.getElementById(s):null;if(!n||!n.classList.contains("show"))return;const a=n.contains(o.target),r=t.contains(o.target);a||r||e(t)}),s()}),document.addEventListener("keydown",o=>{"Escape"===o.key&&(t.forEach(e),s())})});
+document.addEventListener("DOMContentLoaded", () => {
+  const navToggles = Array.from(document.querySelectorAll("[data-nav-toggle]"));
+
+  const closeNav = (toggle) => {
+    const targetId = toggle.getAttribute("data-nav-toggle") || toggle.getAttribute("aria-controls");
+    if (!targetId) {
+      return;
+    }
+
+    const panel = document.getElementById(targetId);
+    if (!panel) {
+      return;
+    }
+
+    panel.classList.remove("show");
+    toggle.classList.add("collapsed");
+    toggle.setAttribute("aria-expanded", "false");
+  };
+
+  navToggles.forEach((toggle) => {
+    const targetId = toggle.getAttribute("data-nav-toggle") || toggle.getAttribute("aria-controls");
+    if (!targetId) {
+      return;
+    }
+
+    const panel = document.getElementById(targetId);
+    if (!panel) {
+      return;
+    }
+
+    toggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      const isOpen = panel.classList.contains("show");
+      panel.classList.toggle("show", !isOpen);
+      toggle.classList.toggle("collapsed", isOpen);
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+    });
+  });
+
+  const navDropdownToggles = Array.from(document.querySelectorAll("[data-nav-dropdown-toggle]"));
+  const closeAllNavDropdowns = (except) => {
+    navDropdownToggles.forEach((toggle) => {
+      if (except && toggle === except) {
+        return;
+      }
+      const item = toggle.closest(".dropdown");
+      const menu = item?.querySelector(".dropdown-menu");
+      if (!menu) {
+        return;
+      }
+
+      item.classList.remove("show");
+      menu.classList.remove("show");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  };
+
+  navDropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const item = toggle.closest(".dropdown");
+      const menu = item?.querySelector(".dropdown-menu");
+      if (!item || !menu) {
+        return;
+      }
+
+      const isOpen = menu.classList.contains("show");
+      closeAllNavDropdowns(toggle);
+
+      item.classList.toggle("show", !isOpen);
+      menu.classList.toggle("show", !isOpen);
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    navToggles.forEach((toggle) => {
+      const targetId = toggle.getAttribute("data-nav-toggle") || toggle.getAttribute("aria-controls");
+      const panel = targetId ? document.getElementById(targetId) : null;
+      if (!panel || !panel.classList.contains("show")) {
+        return;
+      }
+
+      const clickedInsidePanel = panel.contains(event.target);
+      const clickedToggle = toggle.contains(event.target);
+      if (!clickedInsidePanel && !clickedToggle) {
+        closeNav(toggle);
+      }
+    });
+
+    closeAllNavDropdowns();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      navToggles.forEach(closeNav);
+      closeAllNavDropdowns();
+    }
+  });
+});

@@ -1,1 +1,116 @@
-(()=>{const t={tooltip:null,popover:null},o=t=>{const o=document.createElement("div");return o.className=t,o.hidden=!0,document.body.appendChild(o),o},e=(t,o)=>{const e=t.getBoundingClientRect(),n=e.left+window.scrollX+e.width/2-o.offsetWidth/2,i=e.top+window.scrollY-o.offsetHeight-8;o.style.left=`${Math.max(8,n)}px`,o.style.top=`${Math.max(8,i)}px`},n=(n=document)=>{n.querySelectorAll('[data-toggle="tooltip"]').forEach(n=>{if("true"===n.dataset.afTooltipBound)return;n.dataset.afTooltipBound="true";const i=()=>{const i=n.getAttribute("title")||n.getAttribute("data-original-title")||"";i&&(t.tooltip||(t.tooltip=o("af-tooltip")),t.tooltip.textContent=i,t.tooltip.hidden=!1,e(n,t.tooltip))},d=()=>{t.tooltip&&(t.tooltip.hidden=!0)};n.addEventListener("mouseenter",i),n.addEventListener("focus",i),n.addEventListener("mouseleave",d),n.addEventListener("blur",d)})},i=(n=document)=>{n.querySelectorAll('[data-toggle="popover"]').forEach(n=>{if("true"===n.dataset.afPopoverBound)return;n.dataset.afPopoverBound="true";const i=()=>{const i=[n.getAttribute("title")||"",n.getAttribute("data-content")||""].filter(Boolean).join("\n");i&&(t.popover||(t.popover=o("af-popover")),t.popover.textContent=i,t.popover.hidden=!1,e(n,t.popover))},d=()=>{t.popover&&(t.popover.hidden=!0)};n.addEventListener("mouseenter",i),n.addEventListener("focus",i),n.addEventListener("mouseleave",d),n.addEventListener("blur",d)})},d=(t=document)=>{window.AlFolioCompat&&"function"==typeof window.AlFolioCompat.initTooltips?window.AlFolioCompat.initTooltips(t):n(t)},l=(t=document)=>{window.AlFolioCompat&&"function"==typeof window.AlFolioCompat.initPopovers?window.AlFolioCompat.initPopovers(t):i(t)};window.AlFolioUi={initTooltips:d,initPopovers:l},document.addEventListener("DOMContentLoaded",()=>{d(document),l(document)})})();
+(() => {
+  const state = {
+    tooltip: null,
+    popover: null,
+  };
+
+  const createFloating = (className) => {
+    const node = document.createElement("div");
+    node.className = className;
+    node.hidden = true;
+    document.body.appendChild(node);
+    return node;
+  };
+
+  const positionFloating = (trigger, bubble) => {
+    const rect = trigger.getBoundingClientRect();
+    const left = rect.left + window.scrollX + rect.width / 2 - bubble.offsetWidth / 2;
+    const top = rect.top + window.scrollY - bubble.offsetHeight - 8;
+    bubble.style.left = `${Math.max(8, left)}px`;
+    bubble.style.top = `${Math.max(8, top)}px`;
+  };
+
+  const initFallbackTooltips = (root = document) => {
+    root.querySelectorAll('[data-toggle="tooltip"]').forEach((trigger) => {
+      if (trigger.dataset.afTooltipBound === "true") {
+        return;
+      }
+      trigger.dataset.afTooltipBound = "true";
+
+      const show = () => {
+        const text = trigger.getAttribute("title") || trigger.getAttribute("data-original-title") || "";
+        if (!text) {
+          return;
+        }
+        if (!state.tooltip) {
+          state.tooltip = createFloating("af-tooltip");
+        }
+        state.tooltip.textContent = text;
+        state.tooltip.hidden = false;
+        positionFloating(trigger, state.tooltip);
+      };
+
+      const hide = () => {
+        if (state.tooltip) {
+          state.tooltip.hidden = true;
+        }
+      };
+
+      trigger.addEventListener("mouseenter", show);
+      trigger.addEventListener("focus", show);
+      trigger.addEventListener("mouseleave", hide);
+      trigger.addEventListener("blur", hide);
+    });
+  };
+
+  const initFallbackPopovers = (root = document) => {
+    root.querySelectorAll('[data-toggle="popover"]').forEach((trigger) => {
+      if (trigger.dataset.afPopoverBound === "true") {
+        return;
+      }
+      trigger.dataset.afPopoverBound = "true";
+
+      const show = () => {
+        const title = trigger.getAttribute("title") || "";
+        const content = trigger.getAttribute("data-content") || "";
+        const text = [title, content].filter(Boolean).join("\n");
+        if (!text) {
+          return;
+        }
+        if (!state.popover) {
+          state.popover = createFloating("af-popover");
+        }
+        state.popover.textContent = text;
+        state.popover.hidden = false;
+        positionFloating(trigger, state.popover);
+      };
+
+      const hide = () => {
+        if (state.popover) {
+          state.popover.hidden = true;
+        }
+      };
+
+      trigger.addEventListener("mouseenter", show);
+      trigger.addEventListener("focus", show);
+      trigger.addEventListener("mouseleave", hide);
+      trigger.addEventListener("blur", hide);
+    });
+  };
+
+  const initTooltips = (root = document) => {
+    if (window.AlFolioCompat && typeof window.AlFolioCompat.initTooltips === "function") {
+      window.AlFolioCompat.initTooltips(root);
+      return;
+    }
+    initFallbackTooltips(root);
+  };
+
+  const initPopovers = (root = document) => {
+    if (window.AlFolioCompat && typeof window.AlFolioCompat.initPopovers === "function") {
+      window.AlFolioCompat.initPopovers(root);
+      return;
+    }
+    initFallbackPopovers(root);
+  };
+
+  window.AlFolioUi = {
+    initTooltips,
+    initPopovers,
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initTooltips(document);
+    initPopovers(document);
+  });
+})();

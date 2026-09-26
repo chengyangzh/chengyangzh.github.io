@@ -1,1 +1,101 @@
-document.addEventListener("DOMContentLoaded",()=>{const t=Array.from(document.querySelectorAll("a[data-lightbox]"));if(!t.length)return;const e=document.createElement("div");e.className="al-lightbox-overlay",e.setAttribute("role","dialog"),e.setAttribute("aria-modal","true"),e.setAttribute("aria-label","Image preview"),e.innerHTML='\n    <button type="button" class="al-lightbox-close" aria-label="Close preview">&times;</button>\n    <button type="button" class="al-lightbox-nav al-lightbox-prev" aria-label="Previous image">&#10094;</button>\n    <figure class="al-lightbox-figure">\n      <img class="al-lightbox-image" alt="">\n      <figcaption class="al-lightbox-caption"></figcaption>\n    </figure>\n    <button type="button" class="al-lightbox-nav al-lightbox-next" aria-label="Next image">&#10095;</button>\n  ',document.body.appendChild(e);const l=e.querySelector(".al-lightbox-image"),a=e.querySelector(".al-lightbox-caption"),i=e.querySelector(".al-lightbox-close"),o=e.querySelector(".al-lightbox-prev"),n=e.querySelector(".al-lightbox-next");let r=[],s=0;const c=t=>t.getAttribute("data-title")||t.querySelector("img")?.getAttribute("alt")||"",d=()=>{const t=r[s];t&&(l.src=t.href,l.alt=c(t),a.textContent=c(t),o.disabled=r.length<=1,n.disabled=r.length<=1)},b=(t,l)=>{r=t,s=l,d(),e.classList.add("is-open"),document.body.classList.add("al-lightbox-open")},g=()=>{e.classList.remove("is-open"),l.src="",document.body.classList.remove("al-lightbox-open")},u=t=>{r.length<=1||(s=(s+t+r.length)%r.length,d())};t.forEach(e=>{e.addEventListener("click",l=>{l.preventDefault();const a=e.getAttribute("data-lightbox")||"__default",i=t.filter(t=>(t.getAttribute("data-lightbox")||"__default")===a),o=i.indexOf(e);b(i,o<0?0:o)})}),i.addEventListener("click",g),o.addEventListener("click",()=>u(-1)),n.addEventListener("click",()=>u(1)),e.addEventListener("click",t=>{t.target===e&&g()}),document.addEventListener("keydown",t=>{e.classList.contains("is-open")&&("Escape"===t.key?g():"ArrowLeft"===t.key?u(-1):"ArrowRight"===t.key&&u(1))})});
+document.addEventListener("DOMContentLoaded", () => {
+  const links = Array.from(document.querySelectorAll("a[data-lightbox]"));
+  if (!links.length) {
+    return;
+  }
+
+  const overlay = document.createElement("div");
+  overlay.className = "al-lightbox-overlay";
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute("aria-label", "Image preview");
+  overlay.innerHTML = `
+    <button type="button" class="al-lightbox-close" aria-label="Close preview">&times;</button>
+    <button type="button" class="al-lightbox-nav al-lightbox-prev" aria-label="Previous image">&#10094;</button>
+    <figure class="al-lightbox-figure">
+      <img class="al-lightbox-image" alt="">
+      <figcaption class="al-lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="al-lightbox-nav al-lightbox-next" aria-label="Next image">&#10095;</button>
+  `;
+  document.body.appendChild(overlay);
+
+  const image = overlay.querySelector(".al-lightbox-image");
+  const caption = overlay.querySelector(".al-lightbox-caption");
+  const closeBtn = overlay.querySelector(".al-lightbox-close");
+  const prevBtn = overlay.querySelector(".al-lightbox-prev");
+  const nextBtn = overlay.querySelector(".al-lightbox-next");
+
+  let currentGroup = [];
+  let currentIndex = 0;
+
+  const readCaption = (link) => {
+    return link.getAttribute("data-title") || link.querySelector("img")?.getAttribute("alt") || "";
+  };
+
+  const updateView = () => {
+    const link = currentGroup[currentIndex];
+    if (!link) {
+      return;
+    }
+    image.src = link.href;
+    image.alt = readCaption(link);
+    caption.textContent = readCaption(link);
+    prevBtn.disabled = currentGroup.length <= 1;
+    nextBtn.disabled = currentGroup.length <= 1;
+  };
+
+  const open = (group, index) => {
+    currentGroup = group;
+    currentIndex = index;
+    updateView();
+    overlay.classList.add("is-open");
+    document.body.classList.add("al-lightbox-open");
+  };
+
+  const close = () => {
+    overlay.classList.remove("is-open");
+    image.src = "";
+    document.body.classList.remove("al-lightbox-open");
+  };
+
+  const step = (delta) => {
+    if (currentGroup.length <= 1) {
+      return;
+    }
+    currentIndex = (currentIndex + delta + currentGroup.length) % currentGroup.length;
+    updateView();
+  };
+
+  links.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const groupName = link.getAttribute("data-lightbox") || "__default";
+      const group = links.filter((candidate) => (candidate.getAttribute("data-lightbox") || "__default") === groupName);
+      const index = group.indexOf(link);
+      open(group, index < 0 ? 0 : index);
+    });
+  });
+
+  closeBtn.addEventListener("click", close);
+  prevBtn.addEventListener("click", () => step(-1));
+  nextBtn.addEventListener("click", () => step(1));
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) {
+      close();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!overlay.classList.contains("is-open")) {
+      return;
+    }
+    if (event.key === "Escape") {
+      close();
+    } else if (event.key === "ArrowLeft") {
+      step(-1);
+    } else if (event.key === "ArrowRight") {
+      step(1);
+    }
+  });
+});
