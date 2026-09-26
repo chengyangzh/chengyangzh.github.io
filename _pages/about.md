@@ -3,8 +3,6 @@ layout: about
 title: about
 permalink: /
 subtitle: UCLA · Cognitive Science · Linguistics & Computer Science
-nav: true
-nav_order: 1
 
 profile:
   align: right

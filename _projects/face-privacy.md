@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Face Privacy: Humans vs. Recognition Models
+title: "Face Privacy: Humans vs. Recognition Models"
 description: Comparing privacy distortions across human and machine recognition.
 importance: 5
 ---
