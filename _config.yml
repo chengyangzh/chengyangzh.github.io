@@ -1,0 +1,170 @@
+title: Justin Chengyang Zhang
+first_name: Justin
+middle_name: Chengyang
+last_name: Zhang
+contact_note: >
+  The best way to reach me is by email.
+description: >
+  UCLA undergraduate researcher working on relational reasoning, computational linguistics, language change, perception, and human-centered AI.
+footer_text: >
+  Built with <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a> and hosted on GitHub Pages.
+keywords: artificial intelligence, computational linguistics, cognitive science, relational reasoning, UCLA
+lang: en
+icon: 🧠
+url: https://chengyangzh.github.io
+baseurl:
+last_updated: true
+back_to_top: true
+protect_email: false
+
+al_folio:
+  api_version: 1
+  style_engine: tailwind
+  tailwind:
+    version: 4.1.18
+    preflight: false
+    css_entry: assets/tailwind/app.css
+  distill:
+    engine: distillpub-template
+    source: al-org-dev/distill-template#al-folio
+    allow_remote_loader: false
+  features:
+    cv:
+      enabled: true
+    distill:
+      enabled: false
+  compat:
+    bootstrap:
+      enabled: false
+      support_window: v1.0-v1.2
+      deprecates_in: v1.3
+      removed_in: v2.0
+  upgrade:
+    channel: stable
+    auto_apply_safe_fixes: false
+
+navbar_fixed: true
+footer_fixed: false
+search_enabled: true
+socials_in_search: true
+posts_in_search: false
+bib_search: false
+max_width: 980px
+serve_og_meta: true
+serve_schema_org: true
+og_image:
+
+analytics:
+  google:
+  cronitor:
+  pirsch:
+  openpanel:
+  cloudflare:
+enable_simple_analytics: false
+
+blog_name: notes
+blog_description: occasional notes on research and building
+permalink: /blog/:year/:title/
+pagination:
+  enabled: false
+related_blog_posts:
+  enabled: false
+
+newsletter:
+  enabled: false
+
+collections:
+  news:
+    defaults:
+      layout: post
+    output: true
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+
+include: ["_pages"]
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+theme: al_folio_core
+
+plugins:
+  - jekyll-3rd-party-libraries
+  - jekyll-archives-v2
+  - jekyll-cache-bust
+  - jekyll-email-protect
+  - jekyll-feed
+  - jekyll-get-json
+  - jekyll-imagemagick
+  - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate-v2
+  - jekyll-regex-replace
+  - jekyll/scholar
+  - jekyll-sitemap
+  - jekyll-socials
+  - jekyll-tabs
+  - jekyll-terser
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji
+  - al_folio_core
+  - al_icons
+  - al_folio_cv
+  - al_folio_distill
+  - al_folio_upgrade
+  - al_folio_bootstrap_compat
+  - al_cookie
+  - al_analytics
+  - al_citations
+  - al_ext_posts
+  - al_img_tools
+  - al_search
+  - al_charts
+  - al_math
+  - al_comments
+  - al_newsletter
+  - al_email_protect
+  - al_marimo
+  - al_rtl
+
+scholar:
+  last_name: [Zhang]
+  first_name: [Justin, Chengyang]
+  style: apa
+  locale: en
+  source: /_bibliography/
+  bibliography: papers.bib
+  bibliography_template: bib
+  query: "@*"
+  group_by: year
+  group_order: descending
+
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+
+imagemagick:
+  enabled: false
+
+jekyll-minifier:
+  compress_javascript: false
+  compress_css: false
+  exclude: ["robots.txt"]
+
+terser:
+  compress:
+    drop_console: true
+
+enable_project_categories: false
+enable_publication_thumbnails: false

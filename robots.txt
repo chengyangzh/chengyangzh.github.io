@@ -1,1 +1,3 @@
+User-agent: *
+Allow: /
 Sitemap: https://chengyangzh.github.io/sitemap.xml
