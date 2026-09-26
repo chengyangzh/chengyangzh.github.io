@@ -1,4 +1,4 @@
-title: Justin Chengyang Zhang
+title: blank
 first_name: Justin
 middle_name: Chengyang
 last_name: Zhang
@@ -7,13 +7,14 @@ contact_note: >
 description: >
   UCLA undergraduate researcher working on relational reasoning, computational linguistics, language change, perception, and human-centered AI.
 footer_text: >
-  Built with <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a> and hosted on GitHub Pages.
+  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: artificial intelligence, computational linguistics, cognitive science, relational reasoning, UCLA
 lang: en
-icon: 🧠
+icon: ⚛️
 url: https://chengyangzh.github.io
 baseurl:
-last_updated: true
+last_updated: false
 back_to_top: true
 protect_email: false
 
@@ -44,14 +45,14 @@ al_folio:
     auto_apply_safe_fixes: false
 
 navbar_fixed: true
-footer_fixed: false
+footer_fixed: true
 search_enabled: true
 socials_in_search: true
 posts_in_search: false
 bib_search: false
-max_width: 980px
-serve_og_meta: true
-serve_schema_org: true
+max_width: 930px
+serve_og_meta: false
+serve_schema_org: false
 og_image:
 
 analytics:
@@ -62,8 +63,8 @@ analytics:
   cloudflare:
 enable_simple_analytics: false
 
-blog_name: notes
-blog_description: occasional notes on research and building
+blog_name: al-folio
+blog_description: a simple whitespace theme for academics
 permalink: /blog/:year/:title/
 pagination:
   enabled: false
